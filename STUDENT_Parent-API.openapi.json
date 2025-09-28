@@ -1,0 +1,2358 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Parent-API - Student Management",
+    "description": "Parent related APIs",
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.qed.qld.gov.au/parent-api"
+    }
+  ],
+  "paths": {
+    "/parentpersonals/{eqId};zoneId={zoneId}": {
+      "get": {
+        "summary": "Parent List for Student",
+        "description": "Retrieves a summary of parent details for a particular student",
+        "operationId": "parentslistforstudent",
+        "parameters": [
+          {
+            "name": "zoneId",
+            "in": "path",
+            "description": "4 character alphanumeric code of the school",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "eqId",
+            "in": "path",
+            "description": "The student EQId",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "The client authorisation credentials or token",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "timestamp",
+            "in": "header",
+            "description": "ISO 8601 formatted datetime specifying the date/time of the request",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "description": "Specify the format of the response: application/xml or application/json",
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "default": "application/xml"
+            }
+          },
+          {
+            "name": "messageId",
+            "in": "header",
+            "description": "Unique identifier of the message",
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "headers": {
+              "navigationCount": {
+                "description": "The total number of records matching the search criteria",
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "navigationPage": {
+                "description": "The current page number (this is a 1-based index)",
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "navigationPageSize": {
+                "description": "The number of records returned in this response",
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "Content-Type": {
+                "description": "Describes the format of the response: application/xml or application/json",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "messageId": {
+                "description": "Unique identifier of the message. If provided in the request, then it is the same value as supplied in the request header.",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "messageType": {
+                "description": "The message type. Will be RESPONSE for a successful response.",
+                "required": true,
+                "schema": {
+                  "enum": [
+                    "RESPONSE"
+                  ],
+                  "type": "string"
+                }
+              },
+              "responseAction": {
+                "description": "The response action. Will be QUERY for this action.",
+                "required": true,
+                "schema": {
+                  "enum": [
+                    "QUERY"
+                  ],
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ParentPersonalsForStudentResponse"
+                },
+                "example": {
+                  "ParentPersonal": [
+                    {
+                      "StudentContactPersonal": {
+                        "LocalId": "172917",
+                        "PersonInfo": {
+                          "Name": {
+                            "Type": "LGL",
+                            "Title": "Mrs",
+                            "FamilyName": "Drew",
+                            "GivenName": "Jane",
+                            "FullName": "Jane Drew"
+                          },
+                          "AddressList": [
+                            {
+                              "EffectiveFromDate": "2019-02-19T10:00:00+10:00",
+                              "Street": {
+                                "Line1": "750907 Miles Platting Road",
+                                "Line2": ""
+                              },
+                              "City": "Eight Mile Plains",
+                              "StateProvince": "QLD",
+                              "Country": "1101",
+                              "PostalCode": "4113",
+                              "Type": "0765"
+                            }
+                          ],
+                          "PhoneNumberList": [
+                            {
+                              "Number": "0411787878",
+                              "Type": "0888",
+                              "Preference": 1,
+                              "LocalId": "12345"
+                            }
+                          ],
+                          "EmailList": [
+                            {
+                              "Type": "01",
+                              "Value": "myparent@oneschool.com.au",
+                              "Preference": 2,
+                              "LocalId": "6789"
+                            }
+                          ]
+                        },
+                        "SIF_ExtendedElements": [
+                          {
+                            "Name": "SMSIndicator",
+                            "Text": [
+                              "Y"
+                            ]
+                          },
+                          {
+                            "Name": "PreferredContactMethod.Description",
+                            "Text": [
+                              "Mobile (Personal)"
+                            ]
+                          },
+                          {
+                            "Name": "PreferredContactMethod.Code",
+                            "Text": [
+                              "0777"
+                            ]
+                          }
+                        ]
+                      },
+                      "StudentContactRelationship": {
+                        "Relationship": {
+                          "Code": "01",
+                          "OtherCodeList": [
+                            {
+                              "Codeset": "Text",
+                              "Value": "Mother"
+                            }
+                          ]
+                        },
+                        "ContactFlags": {
+                          "LivesWith": "Y",
+                          "FamilyMail": "Y"
+                        }
+                      }
+                    },
+                    {
+                      "StudentContactPersonal": {
+                        "LocalId": "172918",
+                        "PersonInfo": {
+                          "Name": {
+                            "Type": "LGL",
+                            "Title": "Mr",
+                            "FamilyName": "Drew",
+                            "GivenName": "William",
+                            "FullName": "William Drew"
+                          },
+                          "AddressList": [
+                            {
+                              "EffectiveFromDate": "2019-02-19T10:00:00+10:00",
+                              "Street": {
+                                "Line1": "Unit 4",
+                                "Line2": "100 Main Street"
+                              },
+                              "City": "Milton",
+                              "StateProvince": "QLD",
+                              "Country": "1101",
+                              "PostalCode": "4064",
+                              "Type": "0765"
+                            }
+                          ],
+                          "PhoneNumberList": [
+                            {
+                              "Number": "0411787878",
+                              "Type": "0888"
+                            }
+                          ],
+                          "EmailList": [
+                            {
+                              "Type": "01",
+                              "Value": "myparent@oneschool.com.au"
+                            }
+                          ]
+                        },
+                        "SIF_ExtendedElements": [
+                          {
+                            "Name": "SMSIndicator",
+                            "Text": [
+                              "Y"
+                            ]
+                          },
+                          {
+                            "Name": "PreferredContactMethod.Description",
+                            "Text": [
+                              "Mobile (Personal)"
+                            ]
+                          },
+                          {
+                            "Name": "PreferredContactMethod.Code",
+                            "Text": [
+                              "0777"
+                            ]
+                          }
+                        ]
+                      },
+                      "StudentContactRelationship": {
+                        "Relationship": {
+                          "Code": "01",
+                          "OtherCodeList": [
+                            {
+                              "Codeset": "Text",
+                              "Value": "Father"
+                            }
+                          ]
+                        },
+                        "ContactFlags": {
+                          "LivesWith": "Y",
+                          "FamilyMail": "Y"
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No records returned",
+            "headers": {
+              "navigationCount": {
+                "description": "The total number of records matching the search criteria",
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "navigationPage": {
+                "description": "The current page number (this is a 1-based index)",
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "navigationPageSize": {
+                "description": "The number of records returned in this response",
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "messageId": {
+                "description": "Unique identifier of the message. If provided in the request, then it is the same value as supplied in the request header.",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "messageType": {
+                "description": "The message type. Will be RESPONSE for a successful response.",
+                "required": true,
+                "schema": {
+                  "enum": [
+                    "RESPONSE"
+                  ],
+                  "type": "string"
+                }
+              },
+              "responseAction": {
+                "description": "The response action. Will be QUERY for this action.",
+                "required": true,
+                "schema": {
+                  "enum": [
+                    "QUERY"
+                  ],
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/schools/{zoneId}/parentpersonals/{eqId}": {
+      "get": {
+        "summary": "Parent List For Student (Alternate)",
+        "description": "Retrieves a summary of parent details for a particular student",
+        "operationId": "parentslistforstudentalt",
+        "parameters": [
+          {
+            "name": "zoneId",
+            "in": "path",
+            "description": "4 character alphanumeric code of the school",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "eqId",
+            "in": "path",
+            "description": "The student EQId",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "The client authorisation credentials or token",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "timestamp",
+            "in": "header",
+            "description": "ISO 8601 formatted datetime specifying the date/time of the request",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "description": "Specify the format of the response: application/xml or application/json",
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "default": "application/xml"
+            }
+          },
+          {
+            "name": "messageId",
+            "in": "header",
+            "description": "Unique identifier of the message",
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "headers": {
+              "navigationCount": {
+                "description": "The total number of records matching the search criteria",
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "navigationPage": {
+                "description": "The current page number (this is a 1-based index)",
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "navigationPageSize": {
+                "description": "The number of records returned in this response",
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "Content-Type": {
+                "description": "Describes the format of the response: application/xml or application/json",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "messageId": {
+                "description": "Unique identifier of the message. If provided in the request, then it is the same value as supplied in the request header.",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "messageType": {
+                "description": "The message type. Will be RESPONSE for a successful response.",
+                "required": true,
+                "schema": {
+                  "enum": [
+                    "RESPONSE"
+                  ],
+                  "type": "string"
+                }
+              },
+              "responseAction": {
+                "description": "The response action. Will be QUERY for this action.",
+                "required": true,
+                "schema": {
+                  "enum": [
+                    "QUERY"
+                  ],
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ParentPersonalsForStudentResponse"
+                },
+                "example": {
+                  "ParentPersonal": [
+                    {
+                      "StudentContactPersonal": {
+                        "LocalId": "172917",
+                        "PersonInfo": {
+                          "Name": {
+                            "Type": "LGL",
+                            "Title": "Mrs",
+                            "FamilyName": "Drew",
+                            "GivenName": "Jane",
+                            "FullName": "Jane Drew"
+                          },
+                          "AddressList": [
+                            {
+                              "EffectiveFromDate": "2019-02-19T10:00:00+10:00",
+                              "Street": {
+                                "Line1": "750907 Miles Platting Road",
+                                "Line2": ""
+                              },
+                              "City": "Eight Mile Plains",
+                              "StateProvince": "QLD",
+                              "Country": "1101",
+                              "PostalCode": "4113",
+                              "Type": "0765"
+                            }
+                          ],
+                          "PhoneNumberList": [
+                            {
+                              "Number": "0411787878",
+                              "Type": "0888",
+                              "Preference": 1,
+                              "LocalId": "12345"
+                            }
+                          ],
+                          "EmailList": [
+                            {
+                              "Type": "01",
+                              "Value": "myparent@oneschool.com.au",
+                              "Preference": 2,
+                              "LocalId": "6789"
+                            }
+                          ]
+                        },
+                        "SIF_ExtendedElements": [
+                          {
+                            "Name": "SMSIndicator",
+                            "Text": [
+                              "Y"
+                            ]
+                          },
+                          {
+                            "Name": "PreferredContactMethod.Description",
+                            "Text": [
+                              "Mobile (Personal)"
+                            ]
+                          },
+                          {
+                            "Name": "PreferredContactMethod.Code",
+                            "Text": [
+                              "0777"
+                            ]
+                          }
+                        ]
+                      },
+                      "StudentContactRelationship": {
+                        "Relationship": {
+                          "Code": "01",
+                          "OtherCodeList": [
+                            {
+                              "Codeset": "Text",
+                              "Value": "Mother"
+                            }
+                          ]
+                        },
+                        "ContactFlags": {
+                          "LivesWith": "Y",
+                          "FamilyMail": "Y"
+                        }
+                      }
+                    },
+                    {
+                      "StudentContactPersonal": {
+                        "LocalId": "172918",
+                        "PersonInfo": {
+                          "Name": {
+                            "Type": "LGL",
+                            "Title": "Mr",
+                            "FamilyName": "Drew",
+                            "GivenName": "William",
+                            "FullName": "William Drew"
+                          },
+                          "AddressList": [
+                            {
+                              "EffectiveFromDate": "2019-02-19T10:00:00+10:00",
+                              "Street": {
+                                "Line1": "Unit 4",
+                                "Line2": "100 Main Street"
+                              },
+                              "City": "Eight Mile Plains",
+                              "StateProvince": "QLD",
+                              "Country": "1101",
+                              "PostalCode": "4113",
+                              "Type": "0765"
+                            }
+                          ],
+                          "PhoneNumberList": [
+                            {
+                              "Number": "0411787878",
+                              "Type": "0888"
+                            }
+                          ],
+                          "EmailList": [
+                            {
+                              "Type": "01",
+                              "Value": "myparent@oneschool.com.au"
+                            }
+                          ]
+                        },
+                        "SIF_ExtendedElements": [
+                          {
+                            "Name": "SMSIndicator",
+                            "Text": [
+                              "Y"
+                            ]
+                          },
+                          {
+                            "Name": "PreferredContactMethod.Description",
+                            "Text": [
+                              "Mobile (Personal)"
+                            ]
+                          },
+                          {
+                            "Name": "PreferredContactMethod.Code",
+                            "Text": [
+                              "0777"
+                            ]
+                          }
+                        ]
+                      },
+                      "StudentContactRelationship": {
+                        "Relationship": {
+                          "Code": "01",
+                          "OtherCodeList": [
+                            {
+                              "Codeset": "Text",
+                              "Value": "Father"
+                            }
+                          ]
+                        },
+                        "ContactFlags": {
+                          "LivesWith": "Y",
+                          "FamilyMail": "Y"
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No records returned",
+            "headers": {
+              "navigationCount": {
+                "description": "The total number of records matching the search criteria",
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "navigationPage": {
+                "description": "The current page number (this is a 1-based index)",
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "navigationPageSize": {
+                "description": "The number of records returned in this response",
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "messageId": {
+                "description": "Unique identifier of the message. If provided in the request, then it is the same value as supplied in the request header.",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "messageType": {
+                "description": "The message type. Will be RESPONSE for a successful response.",
+                "required": true,
+                "schema": {
+                  "enum": [
+                    "RESPONSE"
+                  ],
+                  "type": "string"
+                }
+              },
+              "responseAction": {
+                "description": "The response action. Will be QUERY for this action.",
+                "required": true,
+                "schema": {
+                  "enum": [
+                    "QUERY"
+                  ],
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/parentpersonals/{eqId}/parents/{parentId}/contacts;zoneId={zoneId}": {
+      "put": {
+        "summary": "Update Parent Contacts",
+        "description": "Updates the contact details of a parent",
+        "operationId": "parentcontactupdate",
+        "parameters": [
+          {
+            "name": "eqId",
+            "in": "path",
+            "description": "The student EQId",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "parentId",
+            "in": "path",
+            "description": "The parent Id",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "zoneId",
+            "in": "path",
+            "description": "4 character alphanumeric code of the school",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "The client authorisation credentials or token",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "timestamp",
+            "in": "header",
+            "description": "ISO 8601 formatted datetime specifying the date/time of the request",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "description": "Specify the format of the response: application/xml or application/json",
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "default": "application/xml"
+            }
+          },
+          {
+            "name": "messageId",
+            "in": "header",
+            "description": "Unique identifier of the message",
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateParentContactsRequest"
+              },
+              "example": {
+                "LocalId": "826893",
+                "PersonInfo": {
+                  "PhoneNumberList": [
+                    {
+                      "Number": "0413 777 111",
+                      "Preference": 1,
+                      "Type": "0888",
+                      "LocalId": "772596"
+                    }
+                  ],
+                  "EmailList": [
+                    {
+                      "Type": "01",
+                      "Value": "jimmy@somewhere.com",
+                      "LocalId": "772597",
+                      "Preference": 2
+                    }
+                  ]
+                },
+                "SIF_Metadata": {
+                  "LifeCycle": {
+                    "ETag": "ew0KICAicGFyZW50LXBlcnNvbmFscyI6ICI1Ig0KfQ=="
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "headers": {
+              "Content-Type": {
+                "description": "Describes the format of the response: application/xml or application/json",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "messageId": {
+                "description": "Unique identifier of the message. If provided in the request, then it is the same value as supplied in the request header.",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "messageType": {
+                "description": "The message type. Will be RESPONSE for a successful response.",
+                "required": true,
+                "schema": {
+                  "enum": [
+                    "RESPONSE"
+                  ],
+                  "type": "string"
+                }
+              },
+              "responseAction": {
+                "description": "The response action. Will be UPDATE for this action.",
+                "required": true,
+                "schema": {
+                  "enum": [
+                    "UPDATE"
+                  ],
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict",
+            "headers": {
+              "Content-Type": {
+                "description": "Describes the format of the response: application/xml or application/json",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "messageId": {
+                "description": "Unique identifier of the message. If provided in the request, then it is the same value as supplied in the request header.",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "messageType": {
+                "description": "The message type. Will be RESPONSE for a successful response.",
+                "required": true,
+                "schema": {
+                  "enum": [
+                    "ERROR"
+                  ],
+                  "type": "string"
+                }
+              },
+              "responseAction": {
+                "description": "The response action. Will be UPDATE for this action.",
+                "required": true,
+                "schema": {
+                  "enum": [
+                    "UPDATE"
+                  ],
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "example": {
+                  "code": 409,
+                  "scope": "/parentpersonals/{eqId}/parents/{parentId}/contacts",
+                  "message": "The request could not be processed: The object has been updated by another user",
+                  "description": ""
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/schools/{zoneId}/parentpersonals/{eqId}/parents/{parentId}/contacts": {
+      "put": {
+        "summary": "Update Parent Contacts (alternate)",
+        "description": "Updates the contact details of a parent",
+        "operationId": "parentcontactupdatealt",
+        "parameters": [
+          {
+            "name": "eqId",
+            "in": "path",
+            "description": "The student EQId",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "parentId",
+            "in": "path",
+            "description": "The parent Id",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "zoneId",
+            "in": "path",
+            "description": "4 character alphanumeric code of the school",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "The client authorisation credentials or token",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "timestamp",
+            "in": "header",
+            "description": "ISO 8601 formatted datetime specifying the date/time of the request",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "description": "Specify the format of the response: application/xml or application/json",
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "default": "application/xml"
+            }
+          },
+          {
+            "name": "messageId",
+            "in": "header",
+            "description": "Unique identifier of the message",
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateParentContactsRequest"
+              },
+              "example": {
+                "LocalId": "826893",
+                "PersonInfo": {
+                  "PhoneNumberList": [
+                    {
+                      "Number": "0413 777 111",
+                      "Preference": 1,
+                      "Type": "0888",
+                      "LocalId": "772596"
+                    }
+                  ],
+                  "EmailList": [
+                    {
+                      "Type": "01",
+                      "Value": "jimmy@somewhere.com",
+                      "LocalId": "772597",
+                      "Preference": 2
+                    }
+                  ]
+                },
+                "SIF_Metadata": {
+                  "LifeCycle": {
+                    "ETag": "ew0KICAicGFyZW50LXBlcnNvbmFscyI6ICI1Ig0KfQ=="
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "headers": {
+              "Content-Type": {
+                "description": "Describes the format of the response: application/xml or application/json",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "messageId": {
+                "description": "Unique identifier of the message. If provided in the request, then it is the same value as supplied in the request header.",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "messageType": {
+                "description": "The message type. Will be RESPONSE for a successful response.",
+                "required": true,
+                "schema": {
+                  "enum": [
+                    "RESPONSE"
+                  ],
+                  "type": "string"
+                }
+              },
+              "responseAction": {
+                "description": "The response action. Will be UPDATE for this action.",
+                "required": true,
+                "schema": {
+                  "enum": [
+                    "UPDATE"
+                  ],
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict",
+            "headers": {
+              "Content-Type": {
+                "description": "Describes the format of the response: application/xml or application/json",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "messageId": {
+                "description": "Unique identifier of the message. If provided in the request, then it is the same value as supplied in the request header.",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "messageType": {
+                "description": "The message type. Will be RESPONSE for a successful response.",
+                "required": true,
+                "schema": {
+                  "enum": [
+                    "ERROR"
+                  ],
+                  "type": "string"
+                }
+              },
+              "responseAction": {
+                "description": "The response action. Will be UPDATE for this action.",
+                "required": true,
+                "schema": {
+                  "enum": [
+                    "UPDATE"
+                  ],
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "example": {
+                  "code": 409,
+                  "scope": "/parentpersonals/{eqId}/parents/{parentId}/contacts",
+                  "message": "The request could not be processed: The object has been updated by another user",
+                  "description": ""
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/parentpersonals/{eqId}/parents/{parentId}/addresses;zoneId={zoneId}": {
+      "put": {
+        "summary": "Update Parent Addresses",
+        "description": "Updates the address details of a parent",
+        "operationId": "parentaddressupdate",
+        "parameters": [
+          {
+            "name": "eqId",
+            "in": "path",
+            "description": "The student EQId",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "parentId",
+            "in": "path",
+            "description": "The parent Id",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "zoneId",
+            "in": "path",
+            "description": "4 character alphanumeric code of the school",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "The client authorisation credentials or token",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "timestamp",
+            "in": "header",
+            "description": "ISO 8601 formatted datetime specifying the date/time of the request",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "description": "Specify the format of the response: application/xml or application/json",
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "default": "application/xml"
+            }
+          },
+          {
+            "name": "messageId",
+            "in": "header",
+            "description": "Unique identifier of the message",
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateParentAddressesRequest"
+              },
+              "example": {
+                "LocalId": "172917",
+                "PersonInfo": {
+                  "AddressList": [
+                    {
+                      "Street": {
+                        "Line1": "750907 Miles Platting Road",
+                        "Line2": ""
+                      },
+                      "City": "Eight Mile Plains",
+                      "StateProvince": "QLD",
+                      "Country": "1101",
+                      "PostalCode": "4113",
+                      "Type": "0765"
+                    }
+                  ]
+                },
+                "SIF_Metadata": {
+                  "LifeCycle": {
+                    "ETag": "ew0KICAicGFyZW50LXBlcnNvbmFscyI6ICJlVGFnVmFsdWUxIg0KfQ=="
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "headers": {
+              "Content-Type": {
+                "description": "Describes the format of the response: application/xml or application/json",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "messageId": {
+                "description": "Unique identifier of the message. If provided in the request, then it is the same value as supplied in the request header.",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "messageType": {
+                "description": "The message type. Will be RESPONSE for a successful response.",
+                "required": true,
+                "schema": {
+                  "enum": [
+                    "RESPONSE"
+                  ],
+                  "type": "string"
+                }
+              },
+              "responseAction": {
+                "description": "The response action. Will be UPDATE for this action.",
+                "required": true,
+                "schema": {
+                  "enum": [
+                    "UPDATE"
+                  ],
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict",
+            "headers": {
+              "Content-Type": {
+                "description": "Describes the format of the response: application/xml or application/json",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "messageId": {
+                "description": "Unique identifier of the message. If provided in the request, then it is the same value as supplied in the request header.",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "messageType": {
+                "description": "The message type. Will be ERROR for an unsuccessful response.",
+                "required": true,
+                "schema": {
+                  "enum": [
+                    "ERROR"
+                  ],
+                  "type": "string"
+                }
+              },
+              "responseAction": {
+                "description": "The response action. Will be UPDATE for this action.",
+                "required": true,
+                "schema": {
+                  "enum": [
+                    "UPDATE"
+                  ],
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "example": {
+                  "code": 409,
+                  "scope": "/parentpersonals/{eqId}/parents/{parentId}/addresses",
+                  "message": "The request could not be processed: The object has been updated by another user",
+                  "description": ""
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/schools/{zoneId}/parentpersonals/{eqId}/parents/{parentId}/addresses": {
+      "put": {
+        "summary": "Update Parent Addresses (alternate)",
+        "description": "Updates the address details of a parent",
+        "operationId": "parentaddressupdatealt",
+        "parameters": [
+          {
+            "name": "eqId",
+            "in": "path",
+            "description": "The student EQId",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "parentId",
+            "in": "path",
+            "description": "The parent Id",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "zoneId",
+            "in": "path",
+            "description": "4 character alphanumeric code of the school",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "The client authorisation credentials or token",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "timestamp",
+            "in": "header",
+            "description": "ISO 8601 formatted datetime specifying the date/time of the request",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "description": "Specify the format of the response: application/xml or application/json",
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "default": "application/xml"
+            }
+          },
+          {
+            "name": "messageId",
+            "in": "header",
+            "description": "Unique identifier of the message",
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateParentAddressesRequest"
+              },
+              "example": {
+                "LocalId": "172917",
+                "PersonInfo": {
+                  "AddressList": [
+                    {
+                      "Street": {
+                        "Line1": "750907 Miles Platting Road",
+                        "Line2": ""
+                      },
+                      "City": "Eight Mile Plains",
+                      "StateProvince": "QLD",
+                      "Country": "1101",
+                      "PostalCode": "4113",
+                      "Type": "0765"
+                    }
+                  ]
+                },
+                "SIF_Metadata": {
+                  "LifeCycle": {
+                    "ETag": "ew0KICAicGFyZW50LXBlcnNvbmFscyI6ICJlVGFnVmFsdWUxIg0KfQ=="
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "headers": {
+              "Content-Type": {
+                "description": "Describes the format of the response: application/xml or application/json",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "messageId": {
+                "description": "Unique identifier of the message. If provided in the request, then it is the same value as supplied in the request header.",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "messageType": {
+                "description": "The message type. Will be RESPONSE for a successful response.",
+                "required": true,
+                "schema": {
+                  "enum": [
+                    "RESPONSE"
+                  ],
+                  "type": "string"
+                }
+              },
+              "responseAction": {
+                "description": "The response action. Will be UPDATE for this action.",
+                "required": true,
+                "schema": {
+                  "enum": [
+                    "UPDATE"
+                  ],
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict",
+            "headers": {
+              "Content-Type": {
+                "description": "Describes the format of the response: application/xml or application/json",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "messageId": {
+                "description": "Unique identifier of the message. If provided in the request, then it is the same value as supplied in the request header.",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "messageType": {
+                "description": "The message type. Will be ERROR for an unsuccessful response.",
+                "required": true,
+                "schema": {
+                  "enum": [
+                    "ERROR"
+                  ],
+                  "type": "string"
+                }
+              },
+              "responseAction": {
+                "description": "The response action. Will be UPDATE for this action.",
+                "required": true,
+                "schema": {
+                  "enum": [
+                    "UPDATE"
+                  ],
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "example": {
+                  "code": 409,
+                  "scope": "/parentpersonals/{eqId}/parents/{parentId}/addresses",
+                  "message": "The request could not be processed: The object has been updated by another user",
+                  "description": ""
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/parentpersonals/{eqId}/parents/{parentId};zoneId={zoneId}": {
+      "put": {
+        "summary": "Update Parent Personal Details",
+        "description": "Updates the personal details of a parent",
+        "operationId": "parentdetailupdate",
+        "parameters": [
+          {
+            "name": "eqId",
+            "in": "path",
+            "description": "The student EQId",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "parentId",
+            "in": "path",
+            "description": "The parent Id",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "zoneId",
+            "in": "path",
+            "description": "4 character alphanumeric code of the school",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "The client authorisation credentials or token",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "timestamp",
+            "in": "header",
+            "description": "ISO 8601 formatted datetime specifying the date/time of the request",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "description": "Specify the format of the response: application/xml or application/json",
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "default": "application/xml"
+            }
+          },
+          {
+            "name": "messageId",
+            "in": "header",
+            "description": "Unique identifier of the message",
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateParentDetailRequest"
+              },
+              "example": {
+                "StudentContactPersonal": {
+                  "LocalId": "826893",
+                  "PersonInfo": {
+                    "Name": {
+                      "Type": "LGL",
+                      "Title": "Mr",
+                      "FamilyName": "Al Trachi",
+                      "GivenName": "Mason"
+                    },
+                    "Demographics": {
+                      "Sex": "1"
+                    }
+                  },
+                  "SIF_Metadata": {
+                    "LifeCycle": {
+                      "ETag": "ew0KICAicGFyZW50LXBlcnNvbmFscyI6ICI1Ig0KfQ=="
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "headers": {
+              "Content-Type": {
+                "description": "Describes the format of the response: application/xml or application/json",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "messageId": {
+                "description": "Unique identifier of the message. If provided in the request, then it is the same value as supplied in the request header.",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "messageType": {
+                "description": "The message type. Will be RESPONSE for a successful response.",
+                "required": true,
+                "schema": {
+                  "enum": [
+                    "RESPONSE"
+                  ],
+                  "type": "string"
+                }
+              },
+              "responseAction": {
+                "description": "The response action. Will be UPDATE for this action.",
+                "required": true,
+                "schema": {
+                  "enum": [
+                    "UPDATE"
+                  ],
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict",
+            "headers": {
+              "Content-Type": {
+                "description": "Describes the format of the response: application/xml or application/json",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "messageId": {
+                "description": "Unique identifier of the message. If provided in the request, then it is the same value as supplied in the request header.",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "messageType": {
+                "description": "The message type. Will be ERROR for an unsuccessful response.",
+                "required": true,
+                "schema": {
+                  "enum": [
+                    "ERROR"
+                  ],
+                  "type": "string"
+                }
+              },
+              "responseAction": {
+                "description": "The response action. Will be UPDATE for this action.",
+                "required": true,
+                "schema": {
+                  "enum": [
+                    "UPDATE"
+                  ],
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "example": {
+                  "code": 409,
+                  "scope": "/parentpersonals/{eqId}/parents/{parentId}",
+                  "message": "The request could not be processed: The object has been updated by another user",
+                  "description": ""
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/schools/{zoneId}/parentpersonals/{eqId}/parents/{parentId}": {
+      "put": {
+        "summary": "Update Parent Personal Details (Alternate)",
+        "description": "Updates the personal details of a parent",
+        "operationId": "parentdetailupdatealt",
+        "parameters": [
+          {
+            "name": "eqId",
+            "in": "path",
+            "description": "The student EQId",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "parentId",
+            "in": "path",
+            "description": "The parent Id",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "zoneId",
+            "in": "path",
+            "description": "4 character alphanumeric code of the school",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "The client authorisation credentials or token",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "timestamp",
+            "in": "header",
+            "description": "ISO 8601 formatted datetime specifying the date/time of the request",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "description": "Specify the format of the response: application/xml or application/json",
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "default": "application/xml"
+            }
+          },
+          {
+            "name": "messageId",
+            "in": "header",
+            "description": "Unique identifier of the message",
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateParentDetailRequest"
+              },
+              "example": {
+                "StudentContactPersonal": {
+                  "LocalId": "826893",
+                  "PersonInfo": {
+                    "Name": {
+                      "Type": "LGL",
+                      "Title": "Mr",
+                      "FamilyName": "Al Trachi",
+                      "GivenName": "Mason"
+                    },
+                    "Demographics": {
+                      "Sex": "1"
+                    }
+                  },
+                  "SIF_Metadata": {
+                    "LifeCycle": {
+                      "ETag": "ew0KICAicGFyZW50LXBlcnNvbmFscyI6ICI1Ig0KfQ=="
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "headers": {
+              "Content-Type": {
+                "description": "Describes the format of the response: application/xml or application/json",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "messageId": {
+                "description": "Unique identifier of the message. If provided in the request, then it is the same value as supplied in the request header.",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "messageType": {
+                "description": "The message type. Will be RESPONSE for a successful response.",
+                "required": true,
+                "schema": {
+                  "enum": [
+                    "RESPONSE"
+                  ],
+                  "type": "string"
+                }
+              },
+              "responseAction": {
+                "description": "The response action. Will be UPDATE for this action.",
+                "required": true,
+                "schema": {
+                  "enum": [
+                    "UPDATE"
+                  ],
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict",
+            "headers": {
+              "Content-Type": {
+                "description": "Describes the format of the response: application/xml or application/json",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "messageId": {
+                "description": "Unique identifier of the message. If provided in the request, then it is the same value as supplied in the request header.",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "messageType": {
+                "description": "The message type. Will be ERROR for an unsuccessful response.",
+                "required": true,
+                "schema": {
+                  "enum": [
+                    "ERROR"
+                  ],
+                  "type": "string"
+                }
+              },
+              "responseAction": {
+                "description": "The response action. Will be UPDATE for this action.",
+                "required": true,
+                "schema": {
+                  "enum": [
+                    "UPDATE"
+                  ],
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "example": {
+                  "code": 409,
+                  "scope": "/parentpersonals/{eqId}/parents/{parentId}",
+                  "message": "The request could not be processed: The object has been updated by another user",
+                  "description": ""
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/healthcheck": {
+      "get": {
+        "summary": "Health check",
+        "description": "Retrieves the health check status from the OneSchool API endpoint",
+        "operationId": "healthcheck",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "example": {
+                  "result": "Online"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ParentPersonalsForStudentResponse": {
+        "type": "object",
+        "properties": {
+          "ParentPersonal": {
+            "type": "array",
+            "items": {
+              "required": [
+                "StudentContactPersonal",
+                "StudentContactRelationship"
+              ],
+              "type": "object",
+              "properties": {
+                "StudentContactPersonal": {
+                  "type": "object",
+                  "properties": {
+                    "LocalId": {
+                      "type": "string"
+                    },
+                    "PersonInfo": {
+                      "type": "object",
+                      "properties": {
+                        "Name": {
+                          "type": "object",
+                          "properties": {
+                            "Type": {
+                              "type": "string"
+                            },
+                            "Title": {
+                              "type": "string"
+                            },
+                            "FamilyName": {
+                              "type": "string"
+                            },
+                            "GivenName": {
+                              "type": "string"
+                            },
+                            "FullName": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "AddressList": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "EffectiveFromDate": {
+                                "type": "string"
+                              },
+                              "Street": {
+                                "type": "object",
+                                "properties": {
+                                  "Line1": {
+                                    "type": "string"
+                                  },
+                                  "Line2": {
+                                    "type": "string"
+                                  }
+                                }
+                              },
+                              "City": {
+                                "type": "string"
+                              },
+                              "StateProvince": {
+                                "type": "string"
+                              },
+                              "Country": {
+                                "type": "string"
+                              },
+                              "PostalCode": {
+                                "type": "string"
+                              },
+                              "Type": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        },
+                        "PhoneNumberList": {
+                          "type": "array",
+                          "items": {
+                            "required": [
+                              "Number",
+                              "Type",
+                              "Preference",
+                              "LocalId"
+                            ],
+                            "type": "object",
+                            "properties": {
+                              "Number": {
+                                "type": "string"
+                              },
+                              "Type": {
+                                "type": "string"
+                              },
+                              "Preference": {
+                                "type": "string"
+                              },
+                              "LocalId": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        },
+                        "EmailList": {
+                          "type": "array",
+                          "items": {
+                            "required": [
+                              "Type",
+                              "Value",
+                              "Preference",
+                              "LocalId"
+                            ],
+                            "type": "object",
+                            "properties": {
+                              "Type": {
+                                "type": "string"
+                              },
+                              "Value": {
+                                "type": "string"
+                              },
+                              "Preference": {
+                                "type": "string"
+                              },
+                              "LocalId": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "SIF_ExtendedElements": {
+                      "type": "array",
+                      "items": {
+                        "required": [
+                          "Name",
+                          "Text"
+                        ],
+                        "type": "object",
+                        "properties": {
+                          "Name": {
+                            "type": "string"
+                          },
+                          "Text": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "StudentContactRelationship": {
+                  "type": "object",
+                  "properties": {
+                    "Relationship": {
+                      "type": "object",
+                      "properties": {
+                        "Code": {
+                          "type": "string"
+                        },
+                        "OtherCodeList": {
+                          "type": "array",
+                          "items": {
+                            "required": [
+                              "Codeset",
+                              "Value"
+                            ],
+                            "type": "object",
+                            "properties": {
+                              "Codeset": {
+                                "type": "string"
+                              },
+                              "Value": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "ContactFlags": {
+                      "type": "object",
+                      "properties": {
+                        "LivesWith": {
+                          "type": "string"
+                        },
+                        "FamilyMail": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "UpdateParentContactsRequest": {
+        "type": "object",
+        "properties": {
+          "LocalId": {
+            "type": "string"
+          },
+          "PersonInfo": {
+            "type": "object",
+            "properties": {
+              "PhoneNumberList": {
+                "type": "array",
+                "items": {
+                  "required": [
+                    "Number",
+                    "Preference",
+                    "Type",
+                    "LocalId"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "Number": {
+                      "type": "string"
+                    },
+                    "Preference": {
+                      "type": "integer"
+                    },
+                    "Type": {
+                      "type": "string"
+                    },
+                    "LocalId": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "EmailList": {
+                "type": "array",
+                "items": {
+                  "required": [
+                    "Type",
+                    "Value",
+                    "LocalId",
+                    "Preference"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "Type": {
+                      "type": "string"
+                    },
+                    "Value": {
+                      "type": "string"
+                    },
+                    "LocalId": {
+                      "type": "string"
+                    },
+                    "Preference": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "SIF_Metadata": {
+            "type": "object",
+            "properties": {
+              "LifeCycle": {
+                "type": "object",
+                "properties": {
+                  "ETag": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "ErrorResponse": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "description": {}
+        }
+      },
+      "UpdateParentAddressesRequest": {
+        "type": "object",
+        "properties": {
+          "LocalId": {
+            "type": "string"
+          },
+          "PersonInfo": {
+            "type": "object",
+            "properties": {
+              "AddressList": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "Street": {
+                      "type": "object",
+                      "properties": {
+                        "Line1": {
+                          "type": "string"
+                        },
+                        "Line2": {}
+                      }
+                    },
+                    "City": {
+                      "type": "string"
+                    },
+                    "StateProvince": {
+                      "type": "string"
+                    },
+                    "Country": {
+                      "type": "string"
+                    },
+                    "PostalCode": {
+                      "type": "string"
+                    },
+                    "Type": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "UpdateParentDetailRequest": {
+        "type": "object",
+        "properties": {
+          "StudentContactPersonal": {
+            "type": "object",
+            "properties": {
+              "LocalId": {
+                "type": "string"
+              },
+              "PersonInfo": {
+                "type": "object",
+                "properties": {
+                  "Name": {
+                    "type": "object",
+                    "properties": {
+                      "Type": {
+                        "type": "string"
+                      },
+                      "Title": {
+                        "type": "string"
+                      },
+                      "FamilyName": {
+                        "type": "string"
+                      },
+                      "GivenName": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "Demographics": {
+                    "type": "object",
+                    "properties": {
+                      "Sex": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              },
+              "SIF_Metadata": {
+                "type": "object",
+                "properties": {
+                  "LifeCycle": {
+                    "type": "object",
+                    "properties": {
+                      "ETag": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "apiKeyHeader": {
+        "type": "apiKey",
+        "name": "applicationKey",
+        "in": "header"
+      },
+      "apiKeyQuery": {
+        "type": "apiKey",
+        "name": "applicationKey",
+        "in": "query"
+      }
+    }
+  },
+  "security": [
+    {
+      "apiKeyHeader": []
+    },
+    {
+      "apiKeyQuery": []
+    }
+  ]
+}
