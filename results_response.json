@@ -1,0 +1,240 @@
+[
+    {
+        "STUDENTPERSONALDETAILRESPONSE": {
+            "LocalId": {
+                "Id": "S0"
+            },
+            "PersonInfo": {
+                "Name": {
+                    "Type": "FullName",
+                    "FamilyName": "Family0",
+                    "GivenName": "Given0",
+                    "FullName": "Given0 Family0"
+                },
+                "Demographics": {
+                    "BirthDate": "2014-03-19"
+                }
+            }
+        },
+        "PARENTPERSONALSFORSTUDENTRESPONSE": {
+            "LocalId": {
+                "Id": "P0"
+            },
+            "PersonInfo": {
+                "Name": {
+                    "Type": "FullName",
+                    "FamilyName": "ParentFamily0",
+                    "GivenName": "ParentGiven0",
+                    "FullName": "ParentGiven0 ParentFamily0"
+                },
+                "Demographics": {
+                    "BirthDate": "1985-11-11"
+                }
+            }
+        }
+    },
+    {
+        "STUDENTPERSONALDETAILRESPONSE": {
+            "LocalId": {
+                "Id": "S1"
+            },
+            "PersonInfo": {
+                "Name": {
+                    "Type": "FullName",
+                    "FamilyName": "Family1",
+                    "GivenName": "Given1",
+                    "FullName": "Given1 Family1"
+                },
+                "Demographics": {
+                    "BirthDate": "2011-12-22"
+                }
+            }
+        },
+        "PARENTPERSONALSFORSTUDENTRESPONSE": {
+            "LocalId": {
+                "Id": "P1"
+            },
+            "PersonInfo": {
+                "Name": {
+                    "Type": "FullName",
+                    "FamilyName": "ParentFamily1",
+                    "GivenName": "ParentGiven1",
+                    "FullName": "ParentGiven1 ParentFamily1"
+                },
+                "Demographics": {
+                    "BirthDate": "1993-07-03"
+                }
+            }
+        }
+    },
+    {
+        "STUDENTPERSONALDETAILRESPONSE": {
+            "LocalId": {
+                "Id": "S2"
+            },
+            "PersonInfo": {
+                "Name": {
+                    "Type": "FullName",
+                    "FamilyName": "Family2",
+                    "GivenName": "Given2",
+                    "FullName": "Given2 Family2"
+                },
+                "Demographics": {
+                    "BirthDate": "2009-08-03"
+                }
+            }
+        },
+        "PARENTPERSONALSFORSTUDENTRESPONSE": {
+            "LocalId": {
+                "Id": "P2"
+            },
+            "PersonInfo": {
+                "Name": {
+                    "Type": "FullName",
+                    "FamilyName": "ParentFamily2",
+                    "GivenName": "ParentGiven2",
+                    "FullName": "ParentGiven2 ParentFamily2"
+                },
+                "Demographics": {
+                    "BirthDate": "1990-01-17"
+                }
+            }
+        }
+    },
+    {
+        "STUDENTPERSONALDETAILRESPONSE": {
+            "LocalId": {
+                "Id": "S3"
+            },
+            "PersonInfo": {
+                "Name": {
+                    "Type": "FullName",
+                    "FamilyName": "Family3",
+                    "GivenName": "Given3",
+                    "FullName": "Given3 Family3"
+                },
+                "Demographics": {
+                    "BirthDate": "2018-07-19"
+                }
+            }
+        },
+        "PARENTPERSONALSFORSTUDENTRESPONSE": {
+            "LocalId": {
+                "Id": "P3"
+            },
+            "PersonInfo": {
+                "Name": {
+                    "Type": "FullName",
+                    "FamilyName": "ParentFamily3",
+                    "GivenName": "ParentGiven3",
+                    "FullName": "ParentGiven3 ParentFamily3"
+                },
+                "Demographics": {
+                    "BirthDate": "1991-04-19"
+                }
+            }
+        }
+    },
+    {
+        "STUDENTPERSONALDETAILRESPONSE": {
+            "LocalId": {
+                "Id": "S4"
+            },
+            "PersonInfo": {
+                "Name": {
+                    "Type": "FullName",
+                    "FamilyName": "Family4",
+                    "GivenName": "Given4",
+                    "FullName": "Given4 Family4"
+                },
+                "Demographics": {
+                    "BirthDate": "2019-03-26"
+                }
+            }
+        },
+        "PARENTPERSONALSFORSTUDENTRESPONSE": {
+            "LocalId": {
+                "Id": "P4"
+            },
+            "PersonInfo": {
+                "Name": {
+                    "Type": "FullName",
+                    "FamilyName": "ParentFamily4",
+                    "GivenName": "ParentGiven4",
+                    "FullName": "ParentGiven4 ParentFamily4"
+                },
+                "Demographics": {
+                    "BirthDate": "1987-05-08"
+                }
+            }
+        }
+    },
+    {
+        "STUDENTPERSONALDETAILRESPONSE": {
+            "LocalId": {
+                "Id": "S5"
+            },
+            "PersonInfo": {
+                "Name": {
+                    "Type": "FullName",
+                    "FamilyName": "Family5",
+                    "GivenName": "Given5",
+                    "FullName": "Given5 Family5"
+                },
+                "Demographics": {
+                    "BirthDate": "2018-10-08"
+                }
+            }
+        },
+        "PARENTPERSONALSFORSTUDENTRESPONSE": {
+            "LocalId": {
+                "Id": "P5"
+            },
+            "PersonInfo": {
+                "Name": {
+                    "Type": "FullName",
+                    "FamilyName": "ParentFamily5",
+                    "GivenName": "ParentGiven5",
+                    "FullName": "ParentGiven5 ParentFamily5"
+                },
+                "Demographics": {
+                    "BirthDate": "1997-08-23"
+                }
+            }
+        }
+    },
+    {
+        "STUDENTPERSONALDETAILRESPONSE": {
+            "LocalId": {
+                "Id": "S6"
+            },
+            "PersonInfo": {
+                "Name": {
+                    "Type": "FullName",
+                    "FamilyName": "Family6",
+                    "GivenName": "Given6",
+                    "FullName": "Given6 Family6"
+                },
+                "Demographics": {
+                    "BirthDate": "2019-07-02"
+                }
+            }
+        },
+        "PARENTPERSONALSFORSTUDENTRESPONSE": {
+            "LocalId": {
+                "Id": "P6"
+            },
+            "PersonInfo": {
+                "Name": {
+                    "Type": "FullName",
+                    "FamilyName": "ParentFamily6",
+                    "GivenName": "ParentGiven6",
+                    "FullName": "ParentGiven6 ParentFamily6"
+                },
+                "Demographics": {
+                    "BirthDate": "1999-05-09"
+                }
+            }
+        }
+    }
+]
