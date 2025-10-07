@@ -1,0 +1,65 @@
+{
+  "date": "2023-11-15T12:19:13.188786",
+  "dayType": {
+    "code": "weekday",
+    "description": "Weekday"
+  },
+  "schedules": [
+    {
+      "dayCycleCode": "C",
+      "timetableVersion": {
+        "id": 68,
+        "name": "Version 8"
+      },
+      "periods": [
+        {
+          "dayConfigId": 162,
+          "dayConfigType": {
+            "code": "normal",
+            "description": "Normal Day"
+          },
+          "startTime": "2023-11-14T09:19:13.188786",
+          "endTime": "2023-11-14T14:19:13.188786",
+          "itemName": "Math",
+          "shortName": "Math",
+          "isTeachingAllocation": false,
+          "classes": [
+            {
+              "hasAttendanceChanges": false,
+              "attendanceStatus": {
+                "code": "present",
+                "description": "Present"
+              },
+              "timetableClassId": 75,
+              "startTime": "2023-11-14T09:19:13.188786",
+              "endTime": "2023-11-14T14:19:13.188786",
+              "className": "Math 101",
+              "activity": {
+                "code": "class",
+                "description": "Class"
+              },
+              "learningArea": {
+                "code": "LA1",
+                "description": "Learning Area 1"
+              },
+              "facility": {
+                "code": "R1",
+                "description": "Room 1"
+              },
+              "classType": {
+                "code": "core",
+                "description": "Core Class"
+              },
+              "isCompositeClass": false,
+              "isRollMarkable": true,
+              "yearLevel": {
+                "code": "Y1",
+                "description": "Year 1"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
