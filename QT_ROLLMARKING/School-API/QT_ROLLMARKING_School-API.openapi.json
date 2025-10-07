@@ -1,0 +1,3110 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "Rollmarking",
+        "description": "These API operations support the rollmarking workflow for a classroom",
+        "version": "1.0"
+    },
+    "servers": [
+        {
+            "url": "https://dp-mockaco.azurewebsites.net/qt-rollmarking/rollmarking"
+        }
+    ],
+    "paths": {
+        "/healthcheck": {
+            "get": {
+                "summary": "Health check",
+                "description": "Retrieves the health check status from the OneSchool API endpoint",
+                "operationId": "healthcheck",
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "result": "Online"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/schools/{centreCode}/calendar-day-summaries/{date}": {
+            "get": {
+                "summary": "Get School Calendar Day Summary",
+                "description": "Retrieves summary information about a particular day in a school calendar for a specified school.",
+                "operationId": "get-school-calendar-for-a-single-date",
+                "parameters": [
+                    {
+                        "name": "centreCode",
+                        "in": "path",
+                        "description": "The school centre code",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "date",
+                        "in": "path",
+                        "description": "The effective date (YYYY-MM-DD)",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "The bearer access token (JWT) containing the user's claims at a particular school",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CalendarDaySummaryResponse"
+                                },
+                                "example": {
+                                    "date": "2019-08-16T00:00:00.0000000+00:00",
+                                    "year": 2019,
+                                    "semester": {
+                                        "number": 2
+                                    },
+                                    "term": {
+                                        "number": 3,
+                                        "week": 6
+                                    },
+                                    "isInSession": true,
+                                    "dayType": {
+                                        "code": "SD",
+                                        "description": "School Day"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/schools/{centreCode}/students/{enrolmentId}/schedules/{date}": {
+            "get": {
+                "summary": "Get Student Schedules for a day",
+                "description": "Retrieves the schedule for a student at a school.",
+                "operationId": "get-student-schedules-for-a-single-day",
+                "parameters": [
+                    {
+                        "name": "centreCode",
+                        "in": "path",
+                        "description": "The school centre code",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "enrolmentId",
+                        "in": "path",
+                        "description": "The student enrolment id at a specific school",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "date",
+                        "in": "path",
+                        "description": "The effective date (YYYY-MM-DD)",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "The bearer access token (JWT) containing the user's claims at a particular school",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/StudentSchedulesResponse"
+                                },
+                                "example": {
+                                    "date": "2015-08-19T00:00:00.0000000+00:00",
+                                    "dayType": {
+                                        "code": "SD",
+                                        "description": "School Day"
+                                    },
+                                    "schedules": [
+                                        {
+                                            "dayCycleCode": "Wed",
+                                            "timetableVersion": {
+                                                "id": 47501,
+                                                "name": "2015 SEC T3 V3"
+                                            },
+                                            "periods": [
+                                                {
+                                                    "dayConfigId": 3764487,
+                                                    "dayConfigType": {
+                                                        "code": "T",
+                                                        "description": "Timetable"
+                                                    },
+                                                    "startTime": "2019-10-17T07:40:00.0000000+00:00",
+                                                    "endTime": "2019-10-17T08:50:00.0000000+00:00",
+                                                    "itemName": "Before School",
+                                                    "shortName": "PB",
+                                                    "isTeachingAllocation": true
+                                                },
+                                                {
+                                                    "dayConfigId": 3764488,
+                                                    "dayConfigType": {
+                                                        "code": "T",
+                                                        "description": "Timetable"
+                                                    },
+                                                    "startTime": "2019-10-17T08:50:00.0000000+00:00",
+                                                    "endTime": "2019-10-17T09:00:00.0000000+00:00",
+                                                    "itemName": "Home Group",
+                                                    "shortName": "HG",
+                                                    "isTeachingAllocation": true,
+                                                    "classes": [
+                                                        {
+                                                            "hasAttendanceChanges": false,
+                                                            "attendanceStatus": {
+                                                                "code": "P",
+                                                                "description": "Present"
+                                                            },
+                                                            "timetableClassId": 978849,
+                                                            "startTime": "2019-10-17T00:00:00.0000000+00:00",
+                                                            "endTime": "2019-10-17T00:00:00.0000000+00:00",
+                                                            "className": "ROL",
+                                                            "activity": {
+                                                                "code": "ROL",
+                                                                "description": "Roll Class"
+                                                            },
+                                                            "facility": {
+                                                                "code": "OCO3",
+                                                                "description": "Communications Classroom 3"
+                                                            },
+                                                            "classType": {
+                                                                "code": "R",
+                                                                "description": "Roll Class"
+                                                            },
+                                                            "isCompositeClass": true,
+                                                            "isRollMarkable": true,
+                                                            "isRollMarked": true,
+                                                            "rollMarkedDate": "2015-08-19T08:54:23.0000000+00:00",
+                                                            "rollMarkedUser": "Kevin Read",
+                                                            "session": "3764488A",
+                                                            "yearLevel": {
+                                                                "code": "Y9",
+                                                                "description": "Year 9"
+                                                            },
+                                                            "teachers": [
+                                                                {
+                                                                    "staffCentreId": 3725474,
+                                                                    "title": "Mr",
+                                                                    "familyName": "Al Trachi",
+                                                                    "givenNames": "Mason",
+                                                                    "timetableCode": "ALTMASZ"
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dayConfigId": 3764489,
+                                                    "dayConfigType": {
+                                                        "code": "T",
+                                                        "description": "Timetable"
+                                                    },
+                                                    "startTime": "2019-10-17T09:00:00.0000000+00:00",
+                                                    "endTime": "2019-10-17T10:10:00.0000000+00:00",
+                                                    "itemName": "Period 1",
+                                                    "shortName": "P1",
+                                                    "isTeachingAllocation": true,
+                                                    "classes": [
+                                                        {
+                                                            "hasAttendanceChanges": false,
+                                                            "attendanceStatus": {
+                                                                "code": "P",
+                                                                "description": "Present"
+                                                            },
+                                                            "timetableClassId": 978887,
+                                                            "startTime": "2019-10-17T00:00:00.0000000+00:00",
+                                                            "endTime": "2019-10-17T00:00:00.0000000+00:00",
+                                                            "className": "SCI072B",
+                                                            "activity": {
+                                                                "code": "SCI",
+                                                                "description": "Science"
+                                                            },
+                                                            "learningArea": {
+                                                                "code": 6,
+                                                                "description": "Science"
+                                                            },
+                                                            "facility": {
+                                                                "code": "ESA3",
+                                                                "description": "Science Area 3"
+                                                            },
+                                                            "classType": {
+                                                                "code": "S",
+                                                                "description": "Subject"
+                                                            },
+                                                            "isCompositeClass": false,
+                                                            "isRollMarkable": true,
+                                                            "isRollMarked": true,
+                                                            "rollMarkedDate": "2015-08-19T08:54:23.0000000+00:00",
+                                                            "rollMarkedUser": "Kevin Read",
+                                                            "session": "3764489A",
+                                                            "yearLevel": {
+                                                                "code": "Y9",
+                                                                "description": "Year 9"
+                                                            },
+                                                            "teachers": [
+                                                                {
+                                                                    "staffCentreId": 3725474,
+                                                                    "title": "Mr",
+                                                                    "familyName": "Al Trachi",
+                                                                    "givenNames": "Mason",
+                                                                    "timetableCode": "ALTMASZ"
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/schools/{centreCode}/teachers/{staffCentreId}/schedules/{date}": {
+            "get": {
+                "summary": "Get Teacher Schedules for a day",
+                "description": "Retrieves the schedule for a teacher at a school.",
+                "operationId": "get-teacher-schedules-for-a-single-day",
+                "parameters": [
+                    {
+                        "name": "centreCode",
+                        "in": "path",
+                        "description": "The school centre code",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "staffCentreId",
+                        "in": "path",
+                        "description": "The teacher id at a specific school",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "date",
+                        "in": "path",
+                        "description": "The effective date (YYYY-MM-DD)",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "The bearer access token (JWT) containing the user's claims at a particular school",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TeacherSchedulesResponse"
+                                },
+                                "example": {
+                                    "date": "2015-08-19T00:00:00.0000000+00:00",
+                                    "dayType": {
+                                        "code": "SD",
+                                        "description": "School Day"
+                                    },
+                                    "schedules": [
+                                        {
+                                            "dayCycleCode": "Wed",
+                                            "timetableVersion": {
+                                                "id": 47501,
+                                                "name": "2015 SEC T3 V3"
+                                            },
+                                            "periods": [
+                                                {
+                                                    "dayConfigId": 3764487,
+                                                    "dayConfigType": {
+                                                        "code": "T",
+                                                        "description": "Timetable"
+                                                    },
+                                                    "startTime": "2021-03-23T07:40:00.0000000+00:00",
+                                                    "endTime": "2021-03-23T08:50:00.0000000+00:00",
+                                                    "itemName": "Before School",
+                                                    "shortName": "PB",
+                                                    "isTeachingAllocation": true
+                                                },
+                                                {
+                                                    "dayConfigId": 3764488,
+                                                    "dayConfigType": {
+                                                        "code": "T",
+                                                        "description": "Timetable"
+                                                    },
+                                                    "startTime": "2021-03-23T08:50:00.0000000+00:00",
+                                                    "endTime": "2021-03-23T09:00:00.0000000+00:00",
+                                                    "itemName": "Home Group",
+                                                    "shortName": "HG",
+                                                    "isTeachingAllocation": true,
+                                                    "compositeClasses": [
+                                                        {
+                                                            "isCompositeClass": true,
+                                                            "startTime": "2021-03-23T08:50:00.0000000+00:00",
+                                                            "endTime": "2021-03-23T09:00:00.0000000+00:00",
+                                                            "session": "3764488A",
+                                                            "isRollMarkable": true,
+                                                            "isRollMarked": true,
+                                                            "rollMarkedDate": "2015-08-19T08:54:23.0000000+00:00",
+                                                            "rollMarkedUser": "Kevin Read",
+                                                            "timetableClassIds": "978849-978850",
+                                                            "className": "11-12A",
+                                                            "classes": [
+                                                                {
+                                                                    "teacherStatus": {
+                                                                        "code": "T",
+                                                                        "description": "Timetabled"
+                                                                    },
+                                                                    "teachers": [
+                                                                        {
+                                                                            "staffCentreId": 3725474,
+                                                                            "title": "Mr",
+                                                                            "familyName": "Al Trachi",
+                                                                            "givenNames": "Mason",
+                                                                            "timetableCode": "ALTMASZ"
+                                                                        }
+                                                                    ],
+                                                                    "isRollMarkable": true,
+                                                                    "session": "3764488A",
+                                                                    "isRollMarked": true,
+                                                                    "rollMarkedDate": "2015-08-19T08:54:23.0000000+00:00",
+                                                                    "rollMarkedUser": "Kevin Read",
+                                                                    "timetableClassId": 978849,
+                                                                    "startTime": "2021-03-23T08:50:00.0000000+00:00",
+                                                                    "endTime": "2021-03-23T09:00:00.0000000+00:00",
+                                                                    "className": "11-12A",
+                                                                    "activity": {
+                                                                        "code": "ROL",
+                                                                        "description": "Roll Class"
+                                                                    },
+                                                                    "learningArea": {
+                                                                        "code": "NC",
+                                                                        "description": "Non Curriculum"
+                                                                    },
+                                                                    "facility": {
+                                                                        "code": "OCO3",
+                                                                        "description": "Communications Classroom 3"
+                                                                    },
+                                                                    "classType": {
+                                                                        "code": "R",
+                                                                        "description": "Roll Class"
+                                                                    },
+                                                                    "isCompositeClass": true,
+                                                                    "yearLevel": {
+                                                                        "code": "Y11",
+                                                                        "description": "Year 11"
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "teacherStatus": {
+                                                                        "code": "T",
+                                                                        "description": "Timetabled"
+                                                                    },
+                                                                    "teachers": [
+                                                                        {
+                                                                            "staffCentreId": 3725474,
+                                                                            "title": "Mr",
+                                                                            "familyName": "Al Trachi",
+                                                                            "givenNames": "Mason",
+                                                                            "timetableCode": "ALTMASZ"
+                                                                        }
+                                                                    ],
+                                                                    "isRollMarkable": true,
+                                                                    "session": "3764488A",
+                                                                    "isRollMarked": true,
+                                                                    "rollMarkedDate": "2015-08-19T08:54:23.0000000+00:00",
+                                                                    "rollMarkedUser": "Kevin Read",
+                                                                    "timetableClassId": 978850,
+                                                                    "startTime": "2021-03-23T08:50:00.0000000+00:00",
+                                                                    "endTime": "2021-03-23T09:00:00.0000000+00:00",
+                                                                    "className": "11-12A",
+                                                                    "activity": {
+                                                                        "code": "ROL",
+                                                                        "description": "Roll Class"
+                                                                    },
+                                                                    "learningArea": "",
+                                                                    "facility": {
+                                                                        "code": "OCO3",
+                                                                        "description": "Communications Classroom 3"
+                                                                    },
+                                                                    "classType": {
+                                                                        "code": "R",
+                                                                        "description": "Roll Class"
+                                                                    },
+                                                                    "isCompositeClass": true,
+                                                                    "yearLevel": {
+                                                                        "code": "Y12",
+                                                                        "description": "Year 12"
+                                                                    }
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dayConfigId": 3764489,
+                                                    "dayConfigType": {
+                                                        "code": "T",
+                                                        "description": "Timetable"
+                                                    },
+                                                    "startTime": "2021-03-23T09:00:00.0000000+00:00",
+                                                    "endTime": "2021-03-23T10:10:00.0000000+00:00",
+                                                    "itemName": "Period 1",
+                                                    "shortName": "P1",
+                                                    "isTeachingAllocation": true,
+                                                    "classes": [
+                                                        {
+                                                            "teacherStatus": {
+                                                                "code": "T",
+                                                                "description": "Timetabled"
+                                                            },
+                                                            "teachers": [
+                                                                {
+                                                                    "staffCentreId": 3725474,
+                                                                    "title": "Mr",
+                                                                    "familyName": "Al Trachi",
+                                                                    "givenNames": "Mason",
+                                                                    "timetableCode": "ALTMASZ"
+                                                                }
+                                                            ],
+                                                            "isRollMarkable": true,
+                                                            "session": "3764489A",
+                                                            "isRollMarked": true,
+                                                            "rollMarkedDate": "2015-08-19T08:54:23.0000000+00:00",
+                                                            "rollMarkedUser": "Kevin Read",
+                                                            "timetableClassId": 978887,
+                                                            "startTime": "2021-03-23T09:00:00.0000000+00:00",
+                                                            "endTime": "2021-03-23T10:10:00.0000000+00:00",
+                                                            "className": "SCI072B",
+                                                            "activity": {
+                                                                "code": "SCI",
+                                                                "description": "Science"
+                                                            },
+                                                            "learningArea": {
+                                                                "code": "06",
+                                                                "description": "Science"
+                                                            },
+                                                            "facility": {
+                                                                "code": "ESA3",
+                                                                "description": "Science Area 3"
+                                                            },
+                                                            "classType": {
+                                                                "code": "S",
+                                                                "description": "Subject"
+                                                            },
+                                                            "isCompositeClass": false,
+                                                            "yearLevel": {
+                                                                "code": "Y7",
+                                                                "description": "Year 7"
+                                                            }
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dayConfigId": 3764490,
+                                                    "dayConfigType": {
+                                                        "code": "T",
+                                                        "description": "Timetable"
+                                                    },
+                                                    "startTime": "2021-03-23T10:10:00.0000000+00:00",
+                                                    "endTime": "2021-03-23T11:20:00.0000000+00:00",
+                                                    "itemName": "Period 2",
+                                                    "shortName": "P2",
+                                                    "isTeachingAllocation": true,
+                                                    "classes": [
+                                                        {
+                                                            "teacherStatus": {
+                                                                "code": "T",
+                                                                "description": "Timetabled"
+                                                            },
+                                                            "teachers": [
+                                                                {
+                                                                    "staffCentreId": 3725474,
+                                                                    "title": "Mr",
+                                                                    "familyName": "Al Trachi",
+                                                                    "givenNames": "Mason",
+                                                                    "timetableCode": "ALTMASZ"
+                                                                }
+                                                            ],
+                                                            "isRollMarkable": true,
+                                                            "session": "3764490A",
+                                                            "isRollMarked": false,
+                                                            "timetableClassId": 980619,
+                                                            "startTime": "2021-03-23T10:10:00.0000000+00:00",
+                                                            "endTime": "2021-03-23T11:20:00.0000000+00:00",
+                                                            "className": "MAT092F",
+                                                            "activity": {
+                                                                "code": "MAT",
+                                                                "description": "Mathematics"
+                                                            },
+                                                            "learningArea": {
+                                                                "code": "05",
+                                                                "description": "Mathematics"
+                                                            },
+                                                            "facility": {
+                                                                "code": "DMA8",
+                                                                "description": "Maths Area 8"
+                                                            },
+                                                            "classType": {
+                                                                "code": "S",
+                                                                "description": "Subject"
+                                                            },
+                                                            "isCompositeClass": false,
+                                                            "yearLevel": {
+                                                                "code": "Y9",
+                                                                "description": "Year 9"
+                                                            }
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dayConfigId": 3764491,
+                                                    "dayConfigType": {
+                                                        "code": "T",
+                                                        "description": "Timetable"
+                                                    },
+                                                    "startTime": "2021-03-23T11:20:00.0000000+00:00",
+                                                    "endTime": "2021-03-23T12:05:00.0000000+00:00",
+                                                    "itemName": "Morning Tea",
+                                                    "shortName": "M Tea",
+                                                    "isTeachingAllocation": false,
+                                                    "patrols": [
+                                                        {
+                                                            "startTime": "2021-03-23T11:40:00.0000000+00:00",
+                                                            "endTime": "2021-03-23T12:05:00.0000000+00:00",
+                                                            "area": {
+                                                                "code": "Area 3",
+                                                                "name": "Area 3 (Maths & Junior Secondary)",
+                                                                "description": "THIS INCLUDES:\\r\\n?\\tAround Maths block and across to Junior Secondary\\r\\n?\\tToilets in Maths block",
+                                                                "specialInstructions": "OUT OF BOUND AREAS INCLUDE:\\r\\n?\\tSportsman Parade end of buildings\\r\\n?\\tCar park side of Maths block\\r\\n?\\tAreas close to the cars and turning area \\r\\n?\\tFront of the Administration area\\r\\n?\\tAREAS TO CHECK:\\r\\n?\\tEnsure no students are in Admin carpark"
+                                                            },
+                                                            "coverNote": "This is a supervisions cover note"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dayConfigId": 3764492,
+                                                    "dayConfigType": {
+                                                        "code": "T",
+                                                        "description": "Timetable"
+                                                    },
+                                                    "startTime": "2021-03-23T12:05:00.0000000+00:00",
+                                                    "endTime": "2021-03-23T13:15:00.0000000+00:00",
+                                                    "itemName": "Period 3",
+                                                    "shortName": "P3",
+                                                    "isTeachingAllocation": true,
+                                                    "classes": [
+                                                        {
+                                                            "teacherStatus": {
+                                                                "code": "T",
+                                                                "description": "Timetabled"
+                                                            },
+                                                            "teachers": [
+                                                                {
+                                                                    "staffCentreId": 3725474,
+                                                                    "title": "Mr",
+                                                                    "familyName": "Al Trachi",
+                                                                    "givenNames": "Mason",
+                                                                    "timetableCode": "ALTMASZ"
+                                                                }
+                                                            ],
+                                                            "isRollMarkable": true,
+                                                            "session": "3764492A",
+                                                            "isRollMarked": false,
+                                                            "timetableClassId": 1116898,
+                                                            "startTime": "2021-03-23T12:05:00.0000000+00:00",
+                                                            "endTime": "2021-03-23T13:15:00.0000000+00:00",
+                                                            "className": "STE092S",
+                                                            "activity": {
+                                                                "code": "STE",
+                                                                "description": "STEPS Program"
+                                                            },
+                                                            "learningArea": "",
+                                                            "facility": {
+                                                                "code": "LMS7",
+                                                                "description": "Junior / Secondary - Flexible Learning  Area"
+                                                            },
+                                                            "classType": {
+                                                                "code": "S",
+                                                                "description": "Subject"
+                                                            },
+                                                            "isCompositeClass": false,
+                                                            "yearLevel": {
+                                                                "code": "Y9",
+                                                                "description": "Year 9"
+                                                            }
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dayConfigId": 3764493,
+                                                    "dayConfigType": {
+                                                        "code": "T",
+                                                        "description": "Timetable"
+                                                    },
+                                                    "startTime": "2021-03-23T13:15:00.0000000+00:00",
+                                                    "endTime": "2021-03-23T13:40:00.0000000+00:00",
+                                                    "itemName": "Lunch",
+                                                    "shortName": "Lunch",
+                                                    "isTeachingAllocation": false
+                                                },
+                                                {
+                                                    "dayConfigId": 3764494,
+                                                    "dayConfigType": {
+                                                        "code": "T",
+                                                        "description": "Timetable"
+                                                    },
+                                                    "startTime": "2021-03-23T13:40:00.0000000+00:00",
+                                                    "endTime": "2021-03-23T14:50:00.0000000+00:00",
+                                                    "itemName": "Period 4",
+                                                    "shortName": "P4",
+                                                    "isTeachingAllocation": true,
+                                                    "classes": [
+                                                        {
+                                                            "teacherStatus": {
+                                                                "code": "T",
+                                                                "description": "Timetabled"
+                                                            },
+                                                            "teachers": [
+                                                                {
+                                                                    "staffCentreId": 3725474,
+                                                                    "title": "Mr",
+                                                                    "familyName": "Al Trachi",
+                                                                    "givenNames": "Mason",
+                                                                    "timetableCode": "ALTMASZ"
+                                                                }
+                                                            ],
+                                                            "isRollMarkable": true,
+                                                            "session": "3764494A",
+                                                            "isRollMarked": false,
+                                                            "timetableClassId": 1098843,
+                                                            "startTime": "2021-03-23T13:40:00.0000000+00:00",
+                                                            "endTime": "2021-03-23T14:50:00.0000000+00:00",
+                                                            "className": "SPT092K",
+                                                            "activity": {
+                                                                "code": "SPT",
+                                                                "description": "Sport"
+                                                            },
+                                                            "learningArea": {
+                                                                "code": "03",
+                                                                "description": "HPE"
+                                                            },
+                                                            "facility": {
+                                                                "code": "LMS7",
+                                                                "description": "Junior / Secondary - Flexible Learning  Area"
+                                                            },
+                                                            "classType": {
+                                                                "code": "S",
+                                                                "description": "Subject"
+                                                            },
+                                                            "isCompositeClass": false,
+                                                            "yearLevel": {
+                                                                "code": "Y9",
+                                                                "description": "Year 9"
+                                                            }
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dayConfigId": 3764507,
+                                                    "dayConfigType": {
+                                                        "code": "P",
+                                                        "description": "Playground Duty"
+                                                    },
+                                                    "startTime": "2021-03-23T14:50:00.0000000+00:00",
+                                                    "endTime": "2021-03-23T15:05:00.0000000+00:00",
+                                                    "itemName": "After School",
+                                                    "shortName": "A School",
+                                                    "isTeachingAllocation": false,
+                                                    "patrols": [
+                                                        {
+                                                            "startTime": "2021-03-23T14:50:00.0000000+00:00",
+                                                            "endTime": "2021-03-23T15:05:00.0000000+00:00",
+                                                            "area": {
+                                                                "code": "Bus",
+                                                                "name": "Bus Stop",
+                                                                "description": "Bus stop at the front of the school",
+                                                                "specialInstructions": "Ensure all students catch the bus"
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/schools/{centreCode}/timetabled-classes/{timetableClassId}/schedules/{date}": {
+            "get": {
+                "summary": "Get Timetabled Class Students",
+                "description": "Retrieves the students for a timetabled class.",
+                "operationId": "get-timetabled-class-students",
+                "parameters": [
+                    {
+                        "name": "centreCode",
+                        "in": "path",
+                        "description": "The school centre code",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "timetableClassId",
+                        "in": "path",
+                        "description": "The class identifier",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "date",
+                        "in": "path",
+                        "description": "The effective date (YYYY-MM-DD)",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "The bearer access token (JWT) containing the user's claims at a particular school",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/StudentsResponse"
+                                },
+                                "example": {
+                                    "students": [
+                                        {
+                                            "enrolmentId": 3725474,
+                                            "eqId": "4430378448X",
+                                            "imageId": 12345678,
+                                            "familyName": "Al Trachi",
+                                            "givenNames": "Mason",
+                                            "birthDate": "1999-12-14T00:00:00.0000000+00:00",
+                                            "age": "10 years 0 months",
+                                            "rollClass": "10A",
+                                            "yearLevel": {
+                                                "code": "Y10",
+                                                "description": "Year 10"
+                                            },
+                                            "enrolmentStatus": {
+                                                "code": "A",
+                                                "description": "Active"
+                                            },
+                                            "gender": {
+                                                "code": "M",
+                                                "description": "Male"
+                                            },
+                                            "hasAbsentNote": true,
+                                            "absences": [
+                                                {
+                                                    "studentAbsenceId": 123,
+                                                    "enrolmentId": 1234567,
+                                                    "absenceDate": "2019-10-16T14:00:00.0000000+00:00",
+                                                    "absenceReason": {
+                                                        "code": "I",
+                                                        "description": "Illness and medical appointments"
+                                                    },
+                                                    "partOfDayAbsence": {
+                                                        "code": "M",
+                                                        "description": "Morning"
+                                                    },
+                                                    "note": "James has an appointment with the doctor.",
+                                                    "modifiedDate": "2019-10-16T20:30:00.0000000+00:00",
+                                                    "modifiedBy": "Kevin Read"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "enrolmentId": 4009189,
+                                            "eqId": "7140113148H",
+                                            "imageId": 12345678,
+                                            "familyName": "Barwick",
+                                            "givenNames": "Andrew",
+                                            "birthDate": "1999-09-30T00:00:00.0000000+00:00",
+                                            "age": "10 years 3 months",
+                                            "rollClass": "10A",
+                                            "yearLevel": {
+                                                "code": "Y10",
+                                                "description": "Year 10"
+                                            },
+                                            "enrolmentStatus": {
+                                                "code": "A",
+                                                "description": "Active"
+                                            },
+                                            "gender": {
+                                                "code": "M",
+                                                "description": "Male"
+                                            },
+                                            "hasAbsentNote": false
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/schools/{centreCode}/timetabled-classes/{timetableClassId}/schedules/{date}/sessions/{sessionId}": {
+            "get": {
+                "summary": "Get Timetabled Class Student Information",
+                "description": "Retrieves attendance-related information for students in a timetabled class.",
+                "operationId": "get-timetabled-class-student-info",
+                "parameters": [
+                    {
+                        "name": "centreCode",
+                        "in": "path",
+                        "description": "The school centre code",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "timetableClassId",
+                        "in": "path",
+                        "description": "The class identifier",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "date",
+                        "in": "path",
+                        "description": "The effective date (YYYY-MM-DD)",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "sessionId",
+                        "in": "path",
+                        "description": "The session identifier",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "The bearer access token (JWT) containing the user's claims at a particular school",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/StudentInformationResponse"
+                                },
+                                "example": {
+                                    "attendanceId": 12345678,
+                                    "version": 1,
+                                    "isRollMarkable": true,
+                                    "isRollMarked": true,
+                                    "rollMarkedDate": "2019-10-17T01:43:10.0472614+00:00",
+                                    "rollMarkedUser": "Kevin Read",
+                                    "students": [
+                                        {
+                                            "enrolmentId": 0,
+                                            "attendanceStatus": {
+                                                "code": "P",
+                                                "description": "Present"
+                                            },
+                                            "hasAttendanceChanges": false,
+                                            "hasAbsentNote": false,
+                                            "eqId": "6344578123B",
+                                            "imageId": 12345678,
+                                            "familyName": "Clarke",
+                                            "givenNames": "Brooke",
+                                            "birthDate": "1999-10-12T00:00:00.0000000+00:00",
+                                            "age": "10 years 2 months",
+                                            "rollClass": "10A",
+                                            "yearLevel": {
+                                                "code": "Y10",
+                                                "description": "Year 10"
+                                            },
+                                            "enrolmentStatus": {
+                                                "code": "A",
+                                                "description": "Active"
+                                            },
+                                            "gender": {
+                                                "code": "F",
+                                                "description": "Female"
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/schools/{centreCode}/timetabled-classes/{timetableClassId}/schedules/{date}/sessions/{sessionId}/attendance": {
+            "post": {
+                "summary": "Post Timetabled Class Attendance",
+                "description": "Submits attendance rollmarking information for a timetabled class.",
+                "operationId": "post-timetabled-class-attendance",
+                "parameters": [
+                    {
+                        "name": "centreCode",
+                        "in": "path",
+                        "description": "The school centre code",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "timetableClassId",
+                        "in": "path",
+                        "description": "The class identifier",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "date",
+                        "in": "path",
+                        "description": "The effective date (YYYY-MM-DD)",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "sessionId",
+                        "in": "path",
+                        "description": "The session identifier",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "The bearer access token (JWT) containing the user's claims at a particular school",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ClassAttendanceRequest"
+                            },
+                            "example": {
+                                "students": [
+                                    {
+                                        "enrolmentId": 0,
+                                        "attendanceStatusCode": "P",
+                                        "changeReason": "reason"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful"
+                    }
+                }
+            }
+        },
+        "/schools/{centreCode}/composite-classes/{timetableClassId}/schedules/{date}/sessions/{sessionId}/attendance": {
+            "post": {
+                "summary": "Post Composite Class Attendance",
+                "description": "Submits attendance rollmarking information for a composite class.",
+                "operationId": "post-composite-class-attendance",
+                "parameters": [
+                    {
+                        "name": "centreCode",
+                        "in": "path",
+                        "description": "The school centre code",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "timetableClassId",
+                        "in": "path",
+                        "description": "The class identifier",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "date",
+                        "in": "path",
+                        "description": "The effective date (YYYY-MM-DD)",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "sessionId",
+                        "in": "path",
+                        "description": "The session identifier",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "The bearer access token (JWT) containing the user's claims at a particular school",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ClassAttendanceRequest"
+                            },
+                            "example": {
+                                "students": [
+                                    {
+                                        "enrolmentId": 0,
+                                        "attendanceStatusCode": "P",
+                                        "changeReason": "reason"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful"
+                    }
+                }
+            }
+        },
+        "/schools/{centreCode}/composite-classes/{timetableClassId}/schedules/{date}/sessions/{sessionId}": {
+            "get": {
+                "summary": "Get Composite Class Student Information",
+                "description": "Retrieves attendance-related information for students in a composite class.",
+                "operationId": "get-composite-class-student-info",
+                "parameters": [
+                    {
+                        "name": "centreCode",
+                        "in": "path",
+                        "description": "The school centre code",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "timetableClassId",
+                        "in": "path",
+                        "description": "The class identifier",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "date",
+                        "in": "path",
+                        "description": "The effective date (YYYY-MM-DD)",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "sessionId",
+                        "in": "path",
+                        "description": "The session identifier",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "The bearer access token (JWT) containing the user's claims at a particular school",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CompositeStudentInformationResponse"
+                                },
+                                "example": {
+                                    "session": "AM",
+                                    "isRollMarkable": true,
+                                    "isRollMarked": false,
+                                    "timetableClassIds": "123-456",
+                                    "classes": [
+                                        {
+                                            "timetableClassId": 123,
+                                            "isRollMarkable": false,
+                                            "notRollMarkableReason": {
+                                                "code": "D",
+                                                "description": "The class has been dismissed."
+                                            },
+                                            "isRollMarked": false
+                                        },
+                                        {
+                                            "session": "AM",
+                                            "timetableClassId": 456,
+                                            "isRollMarkable": true,
+                                            "isRollMarked": false
+                                        }
+                                    ],
+                                    "students": [
+                                        {
+                                            "enrolmentId": 123456,
+                                            "session": "AM",
+                                            "timetableClassId": 456,
+                                            "attendanceStatus": {
+                                                "code": "P",
+                                                "description": "Present"
+                                            },
+                                            "hasAttendanceChanges": false,
+                                            "hasAbsentNote": false,
+                                            "eqId": "6344578123B",
+                                            "imageId": 12345678,
+                                            "familyName": "Clarke",
+                                            "givenNames": "Brooke",
+                                            "birthDate": "1999-10-12T00:00:00.0000000+00:00",
+                                            "age": "10 years 2 months",
+                                            "rollClass": "10A",
+                                            "yearLevel": {
+                                                "code": "Y10",
+                                                "description": "Year 10"
+                                            },
+                                            "enrolmentStatus": {
+                                                "code": "A",
+                                                "description": "Active"
+                                            },
+                                            "gender": {
+                                                "code": "F",
+                                                "description": "Female"
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/schools/{centreCode}/schedules/{date}": {
+            "get": {
+                "summary": "Get All Teachers Schedules for a day",
+                "description": "Retrieves the schedule for all teachers at a school.",
+                "operationId": "get-all-teachers-schedules-for-a-single-day",
+                "parameters": [
+                    {
+                        "name": "centreCode",
+                        "in": "path",
+                        "description": "The school centre code",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "date",
+                        "in": "path",
+                        "description": "The effective date (YYYY-MM-DD)",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "The bearer access token (JWT) containing the user's claims at a particular school",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TeacherSchedulesResponse"
+                                },
+                                "example": {
+                                    "date": "2015-08-19T00:00:00.0000000+00:00",
+                                    "dayType": {
+                                        "code": "SD",
+                                        "description": "School Day"
+                                    },
+                                    "schedules": [
+                                        {
+                                            "dayCycleCode": "Wed",
+                                            "timetableVersion": {
+                                                "id": 47501,
+                                                "name": "2015 SEC T3 V3"
+                                            },
+                                            "periods": [
+                                                {
+                                                    "dayConfigId": 3764487,
+                                                    "dayConfigType": {
+                                                        "code": "T",
+                                                        "description": "Timetable"
+                                                    },
+                                                    "startTime": "2021-03-23T07:40:00.0000000+00:00",
+                                                    "endTime": "2021-03-23T08:50:00.0000000+00:00",
+                                                    "itemName": "Before School",
+                                                    "shortName": "PB",
+                                                    "isTeachingAllocation": true
+                                                },
+                                                {
+                                                    "dayConfigId": 3764488,
+                                                    "dayConfigType": {
+                                                        "code": "T",
+                                                        "description": "Timetable"
+                                                    },
+                                                    "startTime": "2021-03-23T08:50:00.0000000+00:00",
+                                                    "endTime": "2021-03-23T09:00:00.0000000+00:00",
+                                                    "itemName": "Home Group",
+                                                    "shortName": "HG",
+                                                    "isTeachingAllocation": true,
+                                                    "compositeClasses": [
+                                                        {
+                                                            "isCompositeClass": true,
+                                                            "startTime": "2021-03-23T08:50:00.0000000+00:00",
+                                                            "endTime": "2021-03-23T09:00:00.0000000+00:00",
+                                                            "session": "3764488A",
+                                                            "isRollMarkable": true,
+                                                            "isRollMarked": true,
+                                                            "rollMarkedDate": "2015-08-19T08:54:23.0000000+00:00",
+                                                            "rollMarkedUser": "Kevin Read",
+                                                            "timetableClassIds": "978849-978850",
+                                                            "className": "11-12A",
+                                                            "classes": [
+                                                                {
+                                                                    "teacherStatus": {
+                                                                        "code": "T",
+                                                                        "description": "Timetabled"
+                                                                    },
+                                                                    "teachers": [
+                                                                        {
+                                                                            "staffCentreId": 3725474,
+                                                                            "title": "Mr",
+                                                                            "familyName": "Al Trachi",
+                                                                            "givenNames": "Mason",
+                                                                            "timetableCode": "ALTMASZ"
+                                                                        }
+                                                                    ],
+                                                                    "isRollMarkable": true,
+                                                                    "session": "3764488A",
+                                                                    "isRollMarked": true,
+                                                                    "rollMarkedDate": "2015-08-19T08:54:23.0000000+00:00",
+                                                                    "rollMarkedUser": "Kevin Read",
+                                                                    "timetableClassId": 978849,
+                                                                    "startTime": "2021-03-23T08:50:00.0000000+00:00",
+                                                                    "endTime": "2021-03-23T09:00:00.0000000+00:00",
+                                                                    "className": "11-12A",
+                                                                    "activity": {
+                                                                        "code": "ROL",
+                                                                        "description": "Roll Class"
+                                                                    },
+                                                                    "learningArea": {
+                                                                        "code": "NC",
+                                                                        "description": "Non Curriculum"
+                                                                    },
+                                                                    "facility": {
+                                                                        "code": "OCO3",
+                                                                        "description": "Communications Classroom 3"
+                                                                    },
+                                                                    "classType": {
+                                                                        "code": "R",
+                                                                        "description": "Roll Class"
+                                                                    },
+                                                                    "isCompositeClass": true,
+                                                                    "yearLevel": {
+                                                                        "code": "Y11",
+                                                                        "description": "Year 11"
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "teacherStatus": {
+                                                                        "code": "T",
+                                                                        "description": "Timetabled"
+                                                                    },
+                                                                    "teachers": [
+                                                                        {
+                                                                            "staffCentreId": 3725474,
+                                                                            "title": "Mr",
+                                                                            "familyName": "Al Trachi",
+                                                                            "givenNames": "Mason",
+                                                                            "timetableCode": "ALTMASZ"
+                                                                        }
+                                                                    ],
+                                                                    "isRollMarkable": true,
+                                                                    "session": "3764488A",
+                                                                    "isRollMarked": true,
+                                                                    "rollMarkedDate": "2015-08-19T08:54:23.0000000+00:00",
+                                                                    "rollMarkedUser": "Kevin Read",
+                                                                    "timetableClassId": 978850,
+                                                                    "startTime": "2021-03-23T08:50:00.0000000+00:00",
+                                                                    "endTime": "2021-03-23T09:00:00.0000000+00:00",
+                                                                    "className": "11-12A",
+                                                                    "activity": {
+                                                                        "code": "ROL",
+                                                                        "description": "Roll Class"
+                                                                    },
+                                                                    "learningArea": "",
+                                                                    "facility": {
+                                                                        "code": "OCO3",
+                                                                        "description": "Communications Classroom 3"
+                                                                    },
+                                                                    "classType": {
+                                                                        "code": "R",
+                                                                        "description": "Roll Class"
+                                                                    },
+                                                                    "isCompositeClass": true,
+                                                                    "yearLevel": {
+                                                                        "code": "Y12",
+                                                                        "description": "Year 12"
+                                                                    }
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dayConfigId": 3764489,
+                                                    "dayConfigType": {
+                                                        "code": "T",
+                                                        "description": "Timetable"
+                                                    },
+                                                    "startTime": "2021-03-23T09:00:00.0000000+00:00",
+                                                    "endTime": "2021-03-23T10:10:00.0000000+00:00",
+                                                    "itemName": "Period 1",
+                                                    "shortName": "P1",
+                                                    "isTeachingAllocation": true,
+                                                    "classes": [
+                                                        {
+                                                            "teacherStatus": {
+                                                                "code": "T",
+                                                                "description": "Timetabled"
+                                                            },
+                                                            "teachers": [
+                                                                {
+                                                                    "staffCentreId": 3725474,
+                                                                    "title": "Mr",
+                                                                    "familyName": "Al Trachi",
+                                                                    "givenNames": "Mason",
+                                                                    "timetableCode": "ALTMASZ"
+                                                                }
+                                                            ],
+                                                            "isRollMarkable": true,
+                                                            "session": "3764489A",
+                                                            "isRollMarked": true,
+                                                            "rollMarkedDate": "2015-08-19T08:54:23.0000000+00:00",
+                                                            "rollMarkedUser": "Kevin Read",
+                                                            "timetableClassId": 978887,
+                                                            "startTime": "2021-03-23T09:00:00.0000000+00:00",
+                                                            "endTime": "2021-03-23T10:10:00.0000000+00:00",
+                                                            "className": "SCI072B",
+                                                            "activity": {
+                                                                "code": "SCI",
+                                                                "description": "Science"
+                                                            },
+                                                            "learningArea": {
+                                                                "code": "06",
+                                                                "description": "Science"
+                                                            },
+                                                            "facility": {
+                                                                "code": "ESA3",
+                                                                "description": "Science Area 3"
+                                                            },
+                                                            "classType": {
+                                                                "code": "S",
+                                                                "description": "Subject"
+                                                            },
+                                                            "isCompositeClass": false,
+                                                            "yearLevel": {
+                                                                "code": "Y7",
+                                                                "description": "Year 7"
+                                                            }
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dayConfigId": 3764490,
+                                                    "dayConfigType": {
+                                                        "code": "T",
+                                                        "description": "Timetable"
+                                                    },
+                                                    "startTime": "2021-03-23T10:10:00.0000000+00:00",
+                                                    "endTime": "2021-03-23T11:20:00.0000000+00:00",
+                                                    "itemName": "Period 2",
+                                                    "shortName": "P2",
+                                                    "isTeachingAllocation": true,
+                                                    "classes": [
+                                                        {
+                                                            "teacherStatus": {
+                                                                "code": "T",
+                                                                "description": "Timetabled"
+                                                            },
+                                                            "teachers": [
+                                                                {
+                                                                    "staffCentreId": 3725474,
+                                                                    "title": "Mr",
+                                                                    "familyName": "Al Trachi",
+                                                                    "givenNames": "Mason",
+                                                                    "timetableCode": "ALTMASZ"
+                                                                }
+                                                            ],
+                                                            "isRollMarkable": true,
+                                                            "session": "3764490A",
+                                                            "isRollMarked": false,
+                                                            "timetableClassId": 980619,
+                                                            "startTime": "2021-03-23T10:10:00.0000000+00:00",
+                                                            "endTime": "2021-03-23T11:20:00.0000000+00:00",
+                                                            "className": "MAT092F",
+                                                            "activity": {
+                                                                "code": "MAT",
+                                                                "description": "Mathematics"
+                                                            },
+                                                            "learningArea": {
+                                                                "code": "05",
+                                                                "description": "Mathematics"
+                                                            },
+                                                            "facility": {
+                                                                "code": "DMA8",
+                                                                "description": "Maths Area 8"
+                                                            },
+                                                            "classType": {
+                                                                "code": "S",
+                                                                "description": "Subject"
+                                                            },
+                                                            "isCompositeClass": false,
+                                                            "yearLevel": {
+                                                                "code": "Y9",
+                                                                "description": "Year 9"
+                                                            }
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dayConfigId": 3764491,
+                                                    "dayConfigType": {
+                                                        "code": "T",
+                                                        "description": "Timetable"
+                                                    },
+                                                    "startTime": "2021-03-23T11:20:00.0000000+00:00",
+                                                    "endTime": "2021-03-23T12:05:00.0000000+00:00",
+                                                    "itemName": "Morning Tea",
+                                                    "shortName": "M Tea",
+                                                    "isTeachingAllocation": false,
+                                                    "patrols": [
+                                                        {
+                                                            "startTime": "2021-03-23T11:40:00.0000000+00:00",
+                                                            "endTime": "2021-03-23T12:05:00.0000000+00:00",
+                                                            "area": {
+                                                                "code": "Area 3",
+                                                                "name": "Area 3 (Maths & Junior Secondary)",
+                                                                "description": "THIS INCLUDES:\\r\\n?\\tAround Maths block and across to Junior Secondary\\r\\n?\\tToilets in Maths block",
+                                                                "specialInstructions": "OUT OF BOUND AREAS INCLUDE:\\r\\n?\\tSportsman Parade end of buildings\\r\\n?\\tCar park side of Maths block\\r\\n?\\tAreas close to the cars and turning area \\r\\n?\\tFront of the Administration area\\r\\n?\\tAREAS TO CHECK:\\r\\n?\\tEnsure no students are in Admin carpark"
+                                                            },
+                                                            "coverNote": "This is a supervisions cover note"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dayConfigId": 3764492,
+                                                    "dayConfigType": {
+                                                        "code": "T",
+                                                        "description": "Timetable"
+                                                    },
+                                                    "startTime": "2021-03-23T12:05:00.0000000+00:00",
+                                                    "endTime": "2021-03-23T13:15:00.0000000+00:00",
+                                                    "itemName": "Period 3",
+                                                    "shortName": "P3",
+                                                    "isTeachingAllocation": true,
+                                                    "classes": [
+                                                        {
+                                                            "teacherStatus": {
+                                                                "code": "T",
+                                                                "description": "Timetabled"
+                                                            },
+                                                            "teachers": [
+                                                                {
+                                                                    "staffCentreId": 3725474,
+                                                                    "title": "Mr",
+                                                                    "familyName": "Al Trachi",
+                                                                    "givenNames": "Mason",
+                                                                    "timetableCode": "ALTMASZ"
+                                                                }
+                                                            ],
+                                                            "isRollMarkable": true,
+                                                            "session": "3764492A",
+                                                            "isRollMarked": false,
+                                                            "timetableClassId": 1116898,
+                                                            "startTime": "2021-03-23T12:05:00.0000000+00:00",
+                                                            "endTime": "2021-03-23T13:15:00.0000000+00:00",
+                                                            "className": "STE092S",
+                                                            "activity": {
+                                                                "code": "STE",
+                                                                "description": "STEPS Program"
+                                                            },
+                                                            "learningArea": "",
+                                                            "facility": {
+                                                                "code": "LMS7",
+                                                                "description": "Junior / Secondary - Flexible Learning  Area"
+                                                            },
+                                                            "classType": {
+                                                                "code": "S",
+                                                                "description": "Subject"
+                                                            },
+                                                            "isCompositeClass": false,
+                                                            "yearLevel": {
+                                                                "code": "Y9",
+                                                                "description": "Year 9"
+                                                            }
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dayConfigId": 3764493,
+                                                    "dayConfigType": {
+                                                        "code": "T",
+                                                        "description": "Timetable"
+                                                    },
+                                                    "startTime": "2021-03-23T13:15:00.0000000+00:00",
+                                                    "endTime": "2021-03-23T13:40:00.0000000+00:00",
+                                                    "itemName": "Lunch",
+                                                    "shortName": "Lunch",
+                                                    "isTeachingAllocation": false
+                                                },
+                                                {
+                                                    "dayConfigId": 3764494,
+                                                    "dayConfigType": {
+                                                        "code": "T",
+                                                        "description": "Timetable"
+                                                    },
+                                                    "startTime": "2021-03-23T13:40:00.0000000+00:00",
+                                                    "endTime": "2021-03-23T14:50:00.0000000+00:00",
+                                                    "itemName": "Period 4",
+                                                    "shortName": "P4",
+                                                    "isTeachingAllocation": true,
+                                                    "classes": [
+                                                        {
+                                                            "teacherStatus": {
+                                                                "code": "T",
+                                                                "description": "Timetabled"
+                                                            },
+                                                            "teachers": [
+                                                                {
+                                                                    "staffCentreId": 3725474,
+                                                                    "title": "Mr",
+                                                                    "familyName": "Al Trachi",
+                                                                    "givenNames": "Mason",
+                                                                    "timetableCode": "ALTMASZ"
+                                                                }
+                                                            ],
+                                                            "isRollMarkable": true,
+                                                            "session": "3764494A",
+                                                            "isRollMarked": false,
+                                                            "timetableClassId": 1098843,
+                                                            "startTime": "2021-03-23T13:40:00.0000000+00:00",
+                                                            "endTime": "2021-03-23T14:50:00.0000000+00:00",
+                                                            "className": "SPT092K",
+                                                            "activity": {
+                                                                "code": "SPT",
+                                                                "description": "Sport"
+                                                            },
+                                                            "learningArea": {
+                                                                "code": "03",
+                                                                "description": "HPE"
+                                                            },
+                                                            "facility": {
+                                                                "code": "LMS7",
+                                                                "description": "Junior / Secondary - Flexible Learning  Area"
+                                                            },
+                                                            "classType": {
+                                                                "code": "S",
+                                                                "description": "Subject"
+                                                            },
+                                                            "isCompositeClass": false,
+                                                            "yearLevel": {
+                                                                "code": "Y9",
+                                                                "description": "Year 9"
+                                                            }
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dayConfigId": 3764507,
+                                                    "dayConfigType": {
+                                                        "code": "P",
+                                                        "description": "Playground Duty"
+                                                    },
+                                                    "startTime": "2021-03-23T14:50:00.0000000+00:00",
+                                                    "endTime": "2021-03-23T15:05:00.0000000+00:00",
+                                                    "itemName": "After School",
+                                                    "shortName": "A School",
+                                                    "isTeachingAllocation": false,
+                                                    "patrols": [
+                                                        {
+                                                            "startTime": "2021-03-23T14:50:00.0000000+00:00",
+                                                            "endTime": "2021-03-23T15:05:00.0000000+00:00",
+                                                            "area": {
+                                                                "code": "Bus",
+                                                                "name": "Bus Stop",
+                                                                "description": "Bus stop at the front of the school",
+                                                                "specialInstructions": "Ensure all students catch the bus"
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "CalendarDaySummaryResponse": {
+                "type": "object",
+                "properties": {
+                    "date": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "year": {
+                        "type": "integer"
+                    },
+                    "semester": {
+                        "type": "object",
+                        "properties": {
+                            "number": {
+                                "type": "integer"
+                            }
+                        }
+                    },
+                    "term": {
+                        "type": "object",
+                        "properties": {
+                            "number": {
+                                "type": "integer"
+                            },
+                            "week": {
+                                "type": "integer"
+                            }
+                        }
+                    },
+                    "isInSession": {
+                        "type": "boolean"
+                    },
+                    "dayType": {
+                        "type": "object",
+                        "properties": {
+                            "code": {
+                                "type": "string"
+                            },
+                            "description": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            },
+            "StudentSchedulesResponse": {
+                "type": "object",
+                "properties": {
+                    "date": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "dayType": {
+                        "type": "object",
+                        "properties": {
+                            "code": {
+                                "type": "string"
+                            },
+                            "description": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "schedules": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "dayCycleCode": {
+                                    "type": "string"
+                                },
+                                "timetableVersion": {
+                                    "type": "object",
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer"
+                                        },
+                                        "name": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "periods": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "dayConfigId": {
+                                                "type": "integer"
+                                            },
+                                            "dayConfigType": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "code": {
+                                                        "type": "string"
+                                                    },
+                                                    "description": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            },
+                                            "startTime": {
+                                                "type": "string",
+                                                "format": "date-time"
+                                            },
+                                            "endTime": {
+                                                "type": "string",
+                                                "format": "date-time"
+                                            },
+                                            "itemName": {
+                                                "type": "string"
+                                            },
+                                            "shortName": {
+                                                "type": "string"
+                                            },
+                                            "isTeachingAllocation": {
+                                                "type": "boolean"
+                                            },
+                                            "classes": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "hasAttendanceChanges": {
+                                                            "type": "boolean"
+                                                        },
+                                                        "attendanceStatus": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "code": {
+                                                                    "type": "string"
+                                                                },
+                                                                "description": {
+                                                                    "type": "string"
+                                                                }
+                                                            },
+                                                            "nullable": true
+                                                        },
+                                                        "timetableClassId": {
+                                                            "type": "integer"
+                                                        },
+                                                        "startTime": {
+                                                            "type": "string",
+                                                            "format": "date-time"
+                                                        },
+                                                        "endTime": {
+                                                            "type": "string",
+                                                            "format": "date-time"
+                                                        },
+                                                        "className": {
+                                                            "type": "string"
+                                                        },
+                                                        "activity": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "code": {
+                                                                    "type": "string"
+                                                                },
+                                                                "description": {
+                                                                    "type": "string"
+                                                                }
+                                                            }
+                                                        },
+                                                        "learningArea": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "code": {
+                                                                    "type": "string"
+                                                                },
+                                                                "description": {
+                                                                    "type": "string"
+                                                                }
+                                                            }
+                                                        },
+                                                        "facility": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "code": {
+                                                                    "type": "string"
+                                                                },
+                                                                "description": {
+                                                                    "type": "string"
+                                                                }
+                                                            }
+                                                        },
+                                                        "classType": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "code": {
+                                                                    "type": "string"
+                                                                },
+                                                                "description": {
+                                                                    "type": "string"
+                                                                }
+                                                            }
+                                                        },
+                                                        "isCompositeClass": {
+                                                            "type": "boolean"
+                                                        },
+                                                        "isRollMarkable": {
+                                                            "type": "boolean"
+                                                        },
+                                                        "notRollMarkableReason": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "code": {
+                                                                    "type": "string"
+                                                                },
+                                                                "description": {
+                                                                    "type": "string"
+                                                                }
+                                                            }
+                                                        },
+                                                        "isRollMarked": {
+                                                            "type": "boolean"
+                                                        },
+                                                        "rollMarkedDate": {
+                                                            "type": "string",
+                                                            "format": "date-time",
+                                                            "nullable": true
+                                                        },
+                                                        "rollMarkedUser": {
+                                                            "type": "string",
+                                                            "nullable": true
+                                                        },
+                                                        "session": {
+                                                            "type": "string"
+                                                        },
+                                                        "yearLevel": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "code": {
+                                                                    "type": "string"
+                                                                },
+                                                                "description": {
+                                                                    "type": "string"
+                                                                }
+                                                            }
+                                                        },
+                                                        "teachers": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "staffCentreId": {
+                                                                        "type": "integer"
+                                                                    },
+                                                                    "title": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "familyName": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "givenNames": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "timetableCode": {
+                                                                        "type": "string"
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "TeacherSchedulesResponse": {
+                "type": "object",
+                "properties": {
+                    "date": {
+                        "type": "string"
+                    },
+                    "dayType": {
+                        "type": "object",
+                        "properties": {
+                            "code": {
+                                "type": "string"
+                            },
+                            "description": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "schedules": {
+                        "type": "array",
+                        "items": {
+                            "required": [
+                                "dayCycleCode",
+                                "timetableVersion",
+                                "periods"
+                            ],
+                            "type": "object",
+                            "properties": {
+                                "dayCycleCode": {
+                                    "type": "string"
+                                },
+                                "timetableVersion": {
+                                    "type": "object",
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer"
+                                        },
+                                        "name": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "periods": {
+                                    "type": "array",
+                                    "items": {
+                                        "required": [
+                                            "dayConfigId",
+                                            "dayConfigType",
+                                            "startTime",
+                                            "endTime",
+                                            "itemName",
+                                            "shortName",
+                                            "isTeachingAllocation"
+                                        ],
+                                        "type": "object",
+                                        "properties": {
+                                            "dayConfigId": {
+                                                "type": "integer"
+                                            },
+                                            "dayConfigType": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "code": {
+                                                        "type": "string"
+                                                    },
+                                                    "description": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            },
+                                            "startTime": {
+                                                "type": "string"
+                                            },
+                                            "endTime": {
+                                                "type": "string"
+                                            },
+                                            "itemName": {
+                                                "type": "string"
+                                            },
+                                            "shortName": {
+                                                "type": "string"
+                                            },
+                                            "isTeachingAllocation": {
+                                                "type": "boolean"
+                                            },
+                                            "compositeClasses": {
+                                                "type": "array",
+                                                "items": {
+                                                    "required": [
+                                                        "isCompositeClass",
+                                                        "startTime",
+                                                        "endTime",
+                                                        "session",
+                                                        "isRollMarkable",
+                                                        "isRollMarked",
+                                                        "rollMarkedDate",
+                                                        "rollMarkedUser",
+                                                        "timetableClassIds",
+                                                        "className",
+                                                        "classes"
+                                                    ],
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "isCompositeClass": {
+                                                            "type": "boolean"
+                                                        },
+                                                        "startTime": {
+                                                            "type": "string"
+                                                        },
+                                                        "endTime": {
+                                                            "type": "string"
+                                                        },
+                                                        "session": {
+                                                            "type": "string"
+                                                        },
+                                                        "isRollMarkable": {
+                                                            "type": "boolean"
+                                                        },
+                                                        "isRollMarked": {
+                                                            "type": "boolean"
+                                                        },
+                                                        "rollMarkedDate": {
+                                                            "type": "string"
+                                                        },
+                                                        "rollMarkedUser": {
+                                                            "type": "string"
+                                                        },
+                                                        "timetableClassIds": {
+                                                            "type": "string"
+                                                        },
+                                                        "className": {
+                                                            "type": "string"
+                                                        },
+                                                        "classes": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "required": [
+                                                                    "teacherStatus",
+                                                                    "teachers",
+                                                                    "isRollMarkable",
+                                                                    "session",
+                                                                    "isRollMarked",
+                                                                    "rollMarkedDate",
+                                                                    "rollMarkedUser",
+                                                                    "timetableClassId",
+                                                                    "startTime",
+                                                                    "endTime",
+                                                                    "className",
+                                                                    "activity",
+                                                                    "learningArea",
+                                                                    "facility",
+                                                                    "classType",
+                                                                    "isCompositeClass",
+                                                                    "yearLevel"
+                                                                ],
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "teacherStatus": {
+                                                                        "type": "object",
+                                                                        "properties": {
+                                                                            "code": {
+                                                                                "type": "string"
+                                                                            },
+                                                                            "description": {
+                                                                                "type": "string"
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    "teachers": {
+                                                                        "type": "array",
+                                                                        "items": {
+                                                                            "required": [
+                                                                                "staffCentreId",
+                                                                                "title",
+                                                                                "familyName",
+                                                                                "givenNames",
+                                                                                "timetableCode"
+                                                                            ],
+                                                                            "type": "object",
+                                                                            "properties": {
+                                                                                "staffCentreId": {
+                                                                                    "type": "integer"
+                                                                                },
+                                                                                "title": {
+                                                                                    "type": "string"
+                                                                                },
+                                                                                "familyName": {
+                                                                                    "type": "string"
+                                                                                },
+                                                                                "givenNames": {
+                                                                                    "type": "string"
+                                                                                },
+                                                                                "timetableCode": {
+                                                                                    "type": "string"
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    "isRollMarkable": {
+                                                                        "type": "boolean"
+                                                                    },
+                                                                    "session": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "isRollMarked": {
+                                                                        "type": "boolean"
+                                                                    },
+                                                                    "rollMarkedDate": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "rollMarkedUser": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "timetableClassId": {
+                                                                        "type": "integer"
+                                                                    },
+                                                                    "startTime": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "endTime": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "className": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "activity": {
+                                                                        "type": "object",
+                                                                        "properties": {
+                                                                            "code": {
+                                                                                "type": "string"
+                                                                            },
+                                                                            "description": {
+                                                                                "type": "string"
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    "learningArea": {
+                                                                        "type": "object",
+                                                                        "properties": {
+                                                                            "code": {
+                                                                                "type": "string"
+                                                                            },
+                                                                            "description": {
+                                                                                "type": "string"
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    "facility": {
+                                                                        "type": "object",
+                                                                        "properties": {
+                                                                            "code": {
+                                                                                "type": "string"
+                                                                            },
+                                                                            "description": {
+                                                                                "type": "string"
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    "classType": {
+                                                                        "type": "object",
+                                                                        "properties": {
+                                                                            "code": {
+                                                                                "type": "string"
+                                                                            },
+                                                                            "description": {
+                                                                                "type": "string"
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    "isCompositeClass": {
+                                                                        "type": "boolean"
+                                                                    },
+                                                                    "yearLevel": {
+                                                                        "type": "object",
+                                                                        "properties": {
+                                                                            "code": {
+                                                                                "type": "string"
+                                                                            },
+                                                                            "description": {
+                                                                                "type": "string"
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "classes": {
+                                                "type": "array",
+                                                "items": {
+                                                    "required": [
+                                                        "teacherStatus",
+                                                        "teachers",
+                                                        "isRollMarkable",
+                                                        "session",
+                                                        "isRollMarked",
+                                                        "rollMarkedDate",
+                                                        "rollMarkedUser",
+                                                        "timetableClassId",
+                                                        "startTime",
+                                                        "endTime",
+                                                        "className",
+                                                        "activity",
+                                                        "learningArea",
+                                                        "facility",
+                                                        "classType",
+                                                        "isCompositeClass",
+                                                        "yearLevel"
+                                                    ],
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "teacherStatus": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "code": {
+                                                                    "type": "string"
+                                                                },
+                                                                "description": {
+                                                                    "type": "string"
+                                                                }
+                                                            }
+                                                        },
+                                                        "teachers": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "required": [
+                                                                    "staffCentreId",
+                                                                    "title",
+                                                                    "familyName",
+                                                                    "givenNames",
+                                                                    "timetableCode"
+                                                                ],
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "staffCentreId": {
+                                                                        "type": "integer"
+                                                                    },
+                                                                    "title": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "familyName": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "givenNames": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "timetableCode": {
+                                                                        "type": "string"
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        "isRollMarkable": {
+                                                            "type": "boolean"
+                                                        },
+                                                        "session": {
+                                                            "type": "string"
+                                                        },
+                                                        "isRollMarked": {
+                                                            "type": "boolean"
+                                                        },
+                                                        "rollMarkedDate": {
+                                                            "type": "string"
+                                                        },
+                                                        "rollMarkedUser": {
+                                                            "type": "string"
+                                                        },
+                                                        "timetableClassId": {
+                                                            "type": "integer"
+                                                        },
+                                                        "startTime": {
+                                                            "type": "string"
+                                                        },
+                                                        "endTime": {
+                                                            "type": "string"
+                                                        },
+                                                        "className": {
+                                                            "type": "string"
+                                                        },
+                                                        "activity": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "code": {
+                                                                    "type": "string"
+                                                                },
+                                                                "description": {
+                                                                    "type": "string"
+                                                                }
+                                                            }
+                                                        },
+                                                        "learningArea": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "code": {
+                                                                    "type": "string"
+                                                                },
+                                                                "description": {
+                                                                    "type": "string"
+                                                                }
+                                                            }
+                                                        },
+                                                        "facility": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "code": {
+                                                                    "type": "string"
+                                                                },
+                                                                "description": {
+                                                                    "type": "string"
+                                                                }
+                                                            }
+                                                        },
+                                                        "classType": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "code": {
+                                                                    "type": "string"
+                                                                },
+                                                                "description": {
+                                                                    "type": "string"
+                                                                }
+                                                            }
+                                                        },
+                                                        "isCompositeClass": {
+                                                            "type": "boolean"
+                                                        },
+                                                        "yearLevel": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "code": {
+                                                                    "type": "string"
+                                                                },
+                                                                "description": {
+                                                                    "type": "string"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "patrols": {
+                                                "type": "array",
+                                                "items": {
+                                                    "required": [
+                                                        "startTime",
+                                                        "endTime",
+                                                        "area",
+                                                        "coverNote"
+                                                    ],
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "startTime": {
+                                                            "type": "string"
+                                                        },
+                                                        "endTime": {
+                                                            "type": "string"
+                                                        },
+                                                        "area": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "code": {
+                                                                    "type": "string"
+                                                                },
+                                                                "name": {
+                                                                    "type": "string"
+                                                                },
+                                                                "description": {
+                                                                    "type": "string"
+                                                                },
+                                                                "specialInstructions": {
+                                                                    "type": "string"
+                                                                }
+                                                            }
+                                                        },
+                                                        "coverNote": {
+                                                            "type": "string"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "StudentInformationResponse": {
+                "type": "object",
+                "properties": {
+                    "attendanceId": {
+                        "type": "integer",
+                        "nullable": true
+                    },
+                    "version": {
+                        "type": "integer"
+                    },
+                    "isRollMarkable": {
+                        "type": "boolean"
+                    },
+                    "notRollMarkableReason": {
+                        "type": "object",
+                        "properties": {
+                            "code": {
+                                "type": "string"
+                            },
+                            "description": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "isRollMarked": {
+                        "type": "boolean"
+                    },
+                    "rollMarkedDate": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "rollMarkedUser": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "students": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "enrolmentId": {
+                                    "type": "integer"
+                                },
+                                "attendanceStatus": {
+                                    "type": "object",
+                                    "properties": {
+                                        "code": {
+                                            "type": "string"
+                                        },
+                                        "description": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "hasAttendanceChanges": {
+                                    "type": "boolean"
+                                },
+                                "hasAbsentNote": {
+                                    "type": "boolean"
+                                },
+                                "eqId": {
+                                    "type": "string"
+                                },
+                                "imageId": {
+                                    "type": "integer",
+                                    "nullable": true
+                                },
+                                "familyName": {
+                                    "type": "string"
+                                },
+                                "givenNames": {
+                                    "type": "string"
+                                },
+                                "birthDate": {
+                                    "type": "string",
+                                    "format": "date-time"
+                                },
+                                "age": {
+                                    "type": "string"
+                                },
+                                "rollClass": {
+                                    "type": "string"
+                                },
+                                "yearLevel": {
+                                    "type": "object",
+                                    "properties": {
+                                        "code": {
+                                            "type": "string"
+                                        },
+                                        "description": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "enrolmentStatus": {
+                                    "type": "object",
+                                    "properties": {
+                                        "code": {
+                                            "type": "string"
+                                        },
+                                        "description": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "gender": {
+                                    "type": "object",
+                                    "properties": {
+                                        "code": {
+                                            "type": "string"
+                                        },
+                                        "description": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "absences": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "studentAbsenceId": {
+                                                "type": "integer"
+                                            },
+                                            "enrolmentId": {
+                                                "type": "integer"
+                                            },
+                                            "absenceDate": {
+                                                "type": "string",
+                                                "format": "date-time"
+                                            },
+                                            "absenceReason": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "code": {
+                                                        "type": "string"
+                                                    },
+                                                    "description": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            },
+                                            "partOfDayAbsence": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "code": {
+                                                        "type": "string"
+                                                    },
+                                                    "description": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            },
+                                            "lateEarlyTime": {
+                                                "type": "string",
+                                                "nullable": true
+                                            },
+                                            "note": {
+                                                "type": "string"
+                                            },
+                                            "modifiedDate": {
+                                                "type": "string",
+                                                "format": "date-time"
+                                            },
+                                            "modifiedBy": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "StudentsResponse": {
+                "type": "object",
+                "properties": {
+                    "students": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "enrolmentId": {
+                                    "type": "integer"
+                                },
+                                "eqId": {
+                                    "type": "string"
+                                },
+                                "imageId": {
+                                    "type": "integer",
+                                    "nullable": true
+                                },
+                                "familyName": {
+                                    "type": "string"
+                                },
+                                "givenNames": {
+                                    "type": "string"
+                                },
+                                "birthDate": {
+                                    "type": "string",
+                                    "format": "date-time"
+                                },
+                                "age": {
+                                    "type": "string",
+                                    "nullable": true
+                                },
+                                "rollClass": {
+                                    "type": "string"
+                                },
+                                "yearLevel": {
+                                    "type": "object",
+                                    "properties": {
+                                        "code": {
+                                            "type": "string"
+                                        },
+                                        "description": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "enrolmentStatus": {
+                                    "type": "object",
+                                    "properties": {
+                                        "code": {
+                                            "type": "string"
+                                        },
+                                        "description": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "gender": {
+                                    "type": "object",
+                                    "properties": {
+                                        "code": {
+                                            "type": "string"
+                                        },
+                                        "description": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "hasAbsentNote": {
+                                    "type": "boolean"
+                                },
+                                "absences": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "studentAbsenceId": {
+                                                "type": "integer"
+                                            },
+                                            "enrolmentId": {
+                                                "type": "integer"
+                                            },
+                                            "absenceDate": {
+                                                "type": "string",
+                                                "format": "date-time"
+                                            },
+                                            "absenceReason": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "code": {
+                                                        "type": "string"
+                                                    },
+                                                    "description": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            },
+                                            "partOfDayAbsence": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "code": {
+                                                        "type": "string"
+                                                    },
+                                                    "description": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            },
+                                            "note": {
+                                                "type": "string"
+                                            },
+                                            "modifiedDate": {
+                                                "type": "string",
+                                                "format": "date-time"
+                                            },
+                                            "modifiedBy": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "ClassAttendanceRequest": {
+                "type": "object",
+                "properties": {
+                    "students": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "enrolmentId": {
+                                    "type": "integer"
+                                },
+                                "attendanceStatusCode": {
+                                    "type": "string"
+                                },
+                                "changeReason": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "CompositeStudentInformationResponse": {
+                "type": "object",
+                "properties": {
+                    "session": {
+                        "type": "string"
+                    },
+                    "isRollMarkable": {
+                        "type": "boolean"
+                    },
+                    "notRollMarkableReason": {
+                        "type": "object",
+                        "properties": {
+                            "code": {
+                                "type": "string"
+                            },
+                            "description": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "isRollMarked": {
+                        "type": "boolean"
+                    },
+                    "rollMarkedDate": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "rollMarkedUser": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "timetableClassIds": {
+                        "type": "string"
+                    },
+                    "classes": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "attendanceId": {
+                                    "type": "integer",
+                                    "nullable": true
+                                },
+                                "version": {
+                                    "type": "integer",
+                                    "nullable": true
+                                },
+                                "isRollMarkable": {
+                                    "type": "boolean"
+                                },
+                                "notRollMarkableReason": {
+                                    "type": "object",
+                                    "properties": {
+                                        "code": {
+                                            "type": "string"
+                                        },
+                                        "description": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "isRollMarked": {
+                                    "type": "boolean",
+                                    "nullable": true
+                                },
+                                "rollMarkedDate": {
+                                    "type": "string",
+                                    "format": "date-time",
+                                    "nullable": true
+                                },
+                                "rollMarkedUser": {
+                                    "type": "string",
+                                    "nullable": true
+                                }
+                            }
+                        }
+                    },
+                    "students": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "session": {
+                                    "type": "string"
+                                },
+                                "timetableClassId": {
+                                    "type": "integer"
+                                },
+                                "enrolmentId": {
+                                    "type": "integer"
+                                },
+                                "attendanceStatus": {
+                                    "type": "object",
+                                    "properties": {
+                                        "code": {
+                                            "type": "string"
+                                        },
+                                        "description": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "hasAttendanceChanges": {
+                                    "type": "boolean"
+                                },
+                                "hasAbsentNote": {
+                                    "type": "boolean"
+                                },
+                                "eqId": {
+                                    "type": "string"
+                                },
+                                "imageId": {
+                                    "type": "integer",
+                                    "nullable": true
+                                },
+                                "familyName": {
+                                    "type": "string"
+                                },
+                                "givenNames": {
+                                    "type": "string"
+                                },
+                                "birthDate": {
+                                    "type": "string",
+                                    "format": "date-time"
+                                },
+                                "age": {
+                                    "type": "string"
+                                },
+                                "rollClass": {
+                                    "type": "string"
+                                },
+                                "yearLevel": {
+                                    "type": "object",
+                                    "properties": {
+                                        "code": {
+                                            "type": "string"
+                                        },
+                                        "description": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "enrolmentStatus": {
+                                    "type": "object",
+                                    "properties": {
+                                        "code": {
+                                            "type": "string"
+                                        },
+                                        "description": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "gender": {
+                                    "type": "object",
+                                    "properties": {
+                                        "code": {
+                                            "type": "string"
+                                        },
+                                        "description": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "absences": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "studentAbsenceId": {
+                                                "type": "integer"
+                                            },
+                                            "enrolmentId": {
+                                                "type": "integer"
+                                            },
+                                            "absenceDate": {
+                                                "type": "string",
+                                                "format": "date-time"
+                                            },
+                                            "absenceReason": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "code": {
+                                                        "type": "string"
+                                                    },
+                                                    "description": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            },
+                                            "partOfDayAbsence": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "code": {
+                                                        "type": "string"
+                                                    },
+                                                    "description": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            },
+                                            "lateEarlyTime": {
+                                                "type": "string",
+                                                "nullable": true
+                                            },
+                                            "note": {
+                                                "type": "string"
+                                            },
+                                            "modifiedDate": {
+                                                "type": "string",
+                                                "format": "date-time"
+                                            },
+                                            "modifiedBy": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "securitySchemes": {
+            "apiKeyHeader": {
+                "type": "apiKey",
+                "name": "X-Api-Key",
+                "in": "header"
+            },
+            "apiKeyQuery": {
+                "type": "apiKey",
+                "name": "apiKey",
+                "in": "query"
+            }
+        }
+    },
+    "security": [
+        {
+            "apiKeyHeader": []
+        },
+        {
+            "apiKeyQuery": []
+        }
+    ]
+}
