@@ -1,0 +1,71 @@
+[
+  {
+    "date": "2025-05-28T18:43:24",
+    "dayType": {
+      "code": "holiday",
+      "description": "Regular Day"
+    },
+    "schedules": [
+      {
+        "dayCycleCode": "A",
+        "timetableVersion": {
+          "id": 7,
+          "name": "college"
+        },
+        "periods": [
+          {
+            "dayConfigId": 46,
+            "dayConfigType": {
+              "code": "flexible",
+              "description": "Flexible"
+            },
+            "startTime": "2025-10-08T07:31:23.013759",
+            "endTime": "2025-10-08T16:31:23.013766",
+            "itemName": "suffer",
+            "shortName": "traditional",
+            "isTeachingAllocation": false,
+            "classes": [
+              {
+                "hasAttendanceChanges": true,
+                "attendanceStatus": {
+                  "code": "present",
+                  "description": "Present"
+                },
+                "timetableClassId": 146,
+                "startTime": "2025-10-08T07:31:23.013759",
+                "endTime": "2025-10-08T16:31:23.013766",
+                "className": "suffer",
+                "activity": {
+                  "code": "practice",
+                  "description": "This is a practice class"
+                },
+                "learningArea": {
+                  "code": "math",
+                  "description": "Mathematics"
+                },
+                "facility": {
+                  "code": "room1",
+                  "description": "Room 1"
+                },
+                "classType": {
+                  "code": "tutorial",
+                  "description": "Tutorial"
+                },
+                "isCompositeClass": false,
+                "isRollMarkable": true,
+                "notRollMarkableReason": {
+                  "code": "none",
+                  "description": "No reason"
+                },
+                "isRollMarked": true,
+                "rollMarkedDate": "2025-05-28T18:43:24",
+                "rollMarkedUser": "John Doe"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  ...
+]
