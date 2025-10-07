@@ -1,0 +1,84 @@
+[
+  {
+    "date": "2025-10-03T03:05:35",
+    "dayType": {
+      "code": "fire",
+      "description": "Nearly involve rate oil room."
+    },
+    "schedules": [
+      {
+        "dayCycleCode": "we",
+        "timetableVersion": {
+          "id": 76,
+          "name": "Hour hand wrong let perform yet skill."
+        },
+        "periods": [
+          {
+            "dayConfigId": 15,
+            "dayConfigType": {
+              "code": "cold",
+              "description": "Window the who team much magazine."
+            },
+            "startTime": "2025-10-03T03:05:35",
+            "endTime": "2025-10-03T04:05:35",
+            "itemName": "society",
+            "shortName": "officer",
+            "isTeachingAllocation": false,
+            "classes": [
+              {
+                "hasAttendanceChanges": false,
+                "attendanceStatus": {
+                  "code": "face",
+                  "description": "Either but mother worry."
+                },
+                "timetableClassId": 2,
+                "startTime": "2025-10-03T03:05:35",
+                "endTime": "2025-10-03T04:05:35",
+                "className": "wrong",
+                "activity": {
+                  "code": "language",
+                  "description": "Peace of music explain."
+                },
+                "learningArea": {
+                  "code": "coder",
+                  "description": "May want seem security."
+                },
+                "facility": {
+                  "code": "message",
+                  "description": "Actually president determine educational."
+                },
+                "classType": {
+                  "code": "low",
+                  "description": "Section capital enjoy peace."
+                },
+                "isCompositeClass": true,
+                "isRollMarkable": false,
+                "notRollMarkableReason": {
+                  "code": "man",
+                  "description": "Which full field book."
+                },
+                "isRollMarked": false,
+                "rollMarkedDate": null,
+                "rollMarkedUser": "Cynthia Scott",
+                "session": "we",
+                "yearLevel": {
+                  "code": "stuff",
+                  "description": "Things fall few."
+                },
+                "teachers": [
+                  {
+                    "staffCentreId": 45,
+                    "title": "Mr.",
+                    "familyName": "Harrison",
+                    "givenNames": "Joe",
+                    "timetableCode": "strong"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
