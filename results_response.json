@@ -1,0 +1,33 @@
+{
+       "date": "2025-10-17T22:24:22.775038",
+       "dayType": {
+           "code": "HP",
+           "description": "Weekend"
+       },
+       "schedules": [
+           {
+               "dayCycleCode": "A",
+               "timetableVersion": {
+                   "id": 73,
+                   "name": "Version C"
+               },
+               "periods": [
+                   {
+                       "dayConfigId": 259,
+                       "dayConfigType": {
+                           "code": "S",
+                           "description": "Lecture"
+                       },
+                       "startTime": "2025-10-08T09:24:22.775061",
+                       "endTime": "2025-10-08T13:24:22.775066",
+                       "itemName": "Science",
+                       "shortName": "HIST",
+                       "isTeachingAllocation": false,
+                       "classes": []
+                   }
+                   // Additional periods omitted for brevity...
+               ]
+           }
+           // Additional schedules omitted for brevity...
+       ]
+   }
