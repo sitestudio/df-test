@@ -1,0 +1,79 @@
+{
+       "date": "2025-10-04T21:34:34",
+       "dayType": {
+           "code": "put",
+           "description": "Improve local commercial north draw recent trial name."
+       },
+       "schedules": [
+           {
+               "dayCycleCode": "sure",
+               "timetableVersion": {
+                   "id": 78,
+                   "name": "course"
+               },
+               "periods": [
+                   {
+                       "dayConfigId": 33,
+                       "dayConfigType": {
+                           "code": "vote",
+                           "description": "No in also rest power life laugh."
+                       },
+                       "startTime": "2025-10-03T11:00:35",
+                       "endTime": "2025-10-01T20:49:55",
+                       "itemName": "wrong",
+                       "shortName": "place",
+                       "isTeachingAllocation": false,
+                       "classes": [
+                           {
+                               "hasAttendanceChanges": false,
+                               "attendanceStatus": {
+                                   "code": "P",
+                                   "description": "Present"
+                               },
+                               "timetableClassId": 906,
+                               "startTime": "2025-10-02T21:21:09",
+                               "endTime": "2025-10-01T16:54:06",
+                               "className": "tell",
+                               "activity": {
+                                   "code": "deep",
+                                   "description": "Guess itself suffer billion crime ground."
+                               },
+                               "learningArea": {
+                                   "code": "form",
+                                   "description": "Behavior international them dark account mouth."
+                               },
+                               "facility": {
+                                   "code": "before",
+                                   "description": "Responsibility policy money age three recognize shake."
+                               },
+                               "classType": {
+                                   "code": "gas",
+                                   "description": "Story goal national central."
+                               },
+                               "isCompositeClass": true,
+                               "isRollMarkable": true,
+                               "notRollMarkableReason": null,
+                               "isRollMarked": false,
+                               "rollMarkedDate": "2025-10-01T05:14:04",
+                               "rollMarkedUser": "Steven Lang PhD",
+                               "session": "sing",
+                               "yearLevel": {
+                                   "code": "surface",
+                                   "description": "Action summer president professor song."
+                               },
+                               "teachers": [
+                                   {
+                                       "staffCentreId": 839,
+                                       "title": "Mrs",
+                                       "familyName": "Webb",
+                                       "givenNames": "Mark",
+                                       "timetableCode": "institution"
+                                   }
+                               ]
+                           }
+                       ]
+                   }
+               ]
+           }
+       ]
+   }
