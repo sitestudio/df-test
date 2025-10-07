@@ -1,0 +1,85 @@
+[
+    {
+        "date": "2025-10-08T22:26:40.531368",
+        "dayType": {
+            "code": "Half-day",
+            "description": "Half day"
+        },
+        "schedules": [
+            {
+                "dayCycleCode": "A",
+                "timetableVersion": {
+                    "id": 10,
+                    "name": "Version 5"
+                },
+                "periods": [
+                    {
+                        "dayConfigId": 81,
+                        "dayConfigType": {
+                            "code": "Special",
+                            "description": "Regular Schedule"
+                        },
+                        "startTime": "2025-10-08T05:26:40.531422",
+                        "endTime": "2025-10-08T07:26:40.531425",
+                        "itemName": "Period 5",
+                        "shortName": "P2",
+                        "isTeachingAllocation": true,
+                        "classes": [
+                            {
+                                "hasAttendanceChanges": true,
+                                "attendanceStatus": {
+                                    "code": "Present",
+                                    "description": "Arrived Late"
+                                },
+                                "timetableClassId": 59,
+                                "startTime": "2025-10-07T23:26:40.531375",
+                                "endTime": "2025-10-08T14:26:40.531377",
+                                "className": "Class 14",
+                                "activity": {
+                                    "code": "History",
+                                    "description": "Art Class"
+                                },
+                                "learningArea": {
+                                    "code": "Art",
+                                    "description": "Art"
+                                },
+                                "facility": {
+                                    "code": "Room1",
+                                    "description": "Room 3"
+                                },
+                                "classType": {
+                                    "code": "Tutoring",
+                                    "description": "Lecture"
+                                },
+                                "isCompositeClass": true,
+                                "isRollMarkable": false,
+                                "notRollMarkableReason": {
+                                    "code": "Schedule Conflict",
+                                    "description": "Schedule Conflict"
+                                },
+                                "isRollMarked": false,
+                                "rollMarkedDate": "2025-10-07T22:26:40.531384",
+                                "rollMarkedUser": null,
+                                "session": "Session 2",
+                                "yearLevel": {
+                                    "code": "5",
+                                    "description": "Year 4"
+                                },
+                                "teachers": [
+                                    {
+                                        "staffCentreId": 25,
+                                        "title": "Dr.",
+                                        "familyName": "Smith",
+                                        "givenNames": "Alex",
+                                        "timetableCode": "a14881c9-9fe2-4964-9582-d50f4cec3a85"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    ... (4 more sample records here) ...
+]
