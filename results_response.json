@@ -1,0 +1,1044 @@
+[
+  {
+    "attendanceId": 349,
+    "version": 1,
+    "isRollMarkable": true,
+    "notRollMarkableReason": null,
+    "isRollMarked": false,
+    "rollMarkedDate": null,
+    "rollMarkedUser": null,
+    "students": [
+      {
+        "enrolmentId": 6273,
+        "attendanceStatus": {
+          "code": "ATTEND0",
+          "description": "Attended"
+        },
+        "hasAttendanceChanges": false,
+        "hasAbsentNote": false,
+        "eqId": "37158f4a-4dd5-4aab-9043-411077657c03",
+        "imageId": 565,
+        "familyName": "Family0",
+        "givenNames": "Given0",
+        "birthDate": "2011-10-13",
+        "age": "6",
+        "rollClass": "Class0",
+        "yearLevel": {
+          "code": "YL0",
+          "description": "Year Level 0"
+        },
+        "enrolmentStatus": {
+          "code": "ENROLLED",
+          "description": "Currently Enrolled"
+        },
+        "gender": {
+          "code": "M",
+          "description": "Male"
+        },
+        "absences": [
+          {
+            "studentAbsenceId": 670,
+            "enrolmentId": 7646,
+            "absenceDate": "2025-10-12",
+            "absenceReason": {
+              "code": "SICK",
+              "description": "Sick"
+            },
+            "partOfDayAbsence": {
+              "code": "MORNING",
+              "description": "Morning"
+            },
+            "lateEarlyTime": null,
+            "note": "Absent due to illness.",
+            "modifiedDate": "2025-10-13",
+            "modifiedBy": "Admin"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "attendanceId": null,
+    "version": 1,
+    "isRollMarkable": true,
+    "notRollMarkableReason": null,
+    "isRollMarked": false,
+    "rollMarkedDate": null,
+    "rollMarkedUser": null,
+    "students": [
+      {
+        "enrolmentId": 7005,
+        "attendanceStatus": {
+          "code": "ATTEND0",
+          "description": "Attended"
+        },
+        "hasAttendanceChanges": true,
+        "hasAbsentNote": false,
+        "eqId": "5adec956-28fb-4614-b842-3a1c925d7a67",
+        "imageId": 526,
+        "familyName": "Family0",
+        "givenNames": "Given0",
+        "birthDate": "2014-10-13",
+        "age": "14",
+        "rollClass": "Class0",
+        "yearLevel": {
+          "code": "YL0",
+          "description": "Year Level 0"
+        },
+        "enrolmentStatus": {
+          "code": "ENROLLED",
+          "description": "Currently Enrolled"
+        },
+        "gender": {
+          "code": "M",
+          "description": "Male"
+        },
+        "absences": [
+          {
+            "studentAbsenceId": 849,
+            "enrolmentId": 5104,
+            "absenceDate": "2025-10-09",
+            "absenceReason": {
+              "code": "SICK",
+              "description": "Sick"
+            },
+            "partOfDayAbsence": {
+              "code": "MORNING",
+              "description": "Morning"
+            },
+            "lateEarlyTime": null,
+            "note": "Absent due to illness.",
+            "modifiedDate": "2025-10-13",
+            "modifiedBy": "Admin"
+          }
+        ]
+      },
+      {
+        "enrolmentId": 6024,
+        "attendanceStatus": {
+          "code": "ATTEND1",
+          "description": "Attended"
+        },
+        "hasAttendanceChanges": false,
+        "hasAbsentNote": true,
+        "eqId": "4f8c5e73-e892-43b0-a28a-ba50f14ba9f4",
+        "imageId": null,
+        "familyName": "Family1",
+        "givenNames": "Given1",
+        "birthDate": "2011-10-13",
+        "age": "6",
+        "rollClass": "Class1",
+        "yearLevel": {
+          "code": "YL1",
+          "description": "Year Level 1"
+        },
+        "enrolmentStatus": {
+          "code": "ENROLLED",
+          "description": "Currently Enrolled"
+        },
+        "gender": {
+          "code": "M",
+          "description": "Male"
+        },
+        "absences": [
+          {
+            "studentAbsenceId": 308,
+            "enrolmentId": 8069,
+            "absenceDate": "2025-10-09",
+            "absenceReason": {
+              "code": "SICK",
+              "description": "Sick"
+            },
+            "partOfDayAbsence": {
+              "code": "MORNING",
+              "description": "Morning"
+            },
+            "lateEarlyTime": null,
+            "note": "Absent due to illness.",
+            "modifiedDate": "2025-10-13",
+            "modifiedBy": "Admin"
+          }
+        ]
+      },
+      {
+        "enrolmentId": 9340,
+        "attendanceStatus": {
+          "code": "ATTEND2",
+          "description": "Attended"
+        },
+        "hasAttendanceChanges": true,
+        "hasAbsentNote": true,
+        "eqId": "5e812cf3-f321-4571-a56a-6c4b7a474c32",
+        "imageId": 592,
+        "familyName": "Family2",
+        "givenNames": "Given2",
+        "birthDate": "2010-10-13",
+        "age": "19",
+        "rollClass": "Class2",
+        "yearLevel": {
+          "code": "YL2",
+          "description": "Year Level 2"
+        },
+        "enrolmentStatus": {
+          "code": "ENROLLED",
+          "description": "Currently Enrolled"
+        },
+        "gender": {
+          "code": "M",
+          "description": "Male"
+        },
+        "absences": [
+          {
+            "studentAbsenceId": 988,
+            "enrolmentId": 7987,
+            "absenceDate": "2025-10-04",
+            "absenceReason": {
+              "code": "SICK",
+              "description": "Sick"
+            },
+            "partOfDayAbsence": {
+              "code": "MORNING",
+              "description": "Morning"
+            },
+            "lateEarlyTime": null,
+            "note": "Absent due to illness.",
+            "modifiedDate": "2025-10-13",
+            "modifiedBy": "Admin"
+          }
+        ]
+      },
+      {
+        "enrolmentId": 5472,
+        "attendanceStatus": {
+          "code": "ATTEND3",
+          "description": "Attended"
+        },
+        "hasAttendanceChanges": true,
+        "hasAbsentNote": true,
+        "eqId": "ba266fdd-3cc9-4604-b44c-9b40b58b1998",
+        "imageId": null,
+        "familyName": "Family3",
+        "givenNames": "Given3",
+        "birthDate": "2017-10-13",
+        "age": "9",
+        "rollClass": "Class3",
+        "yearLevel": {
+          "code": "YL3",
+          "description": "Year Level 3"
+        },
+        "enrolmentStatus": {
+          "code": "ENROLLED",
+          "description": "Currently Enrolled"
+        },
+        "gender": {
+          "code": "M",
+          "description": "Male"
+        },
+        "absences": [
+          {
+            "studentAbsenceId": 269,
+            "enrolmentId": 4214,
+            "absenceDate": "2025-10-09",
+            "absenceReason": {
+              "code": "SICK",
+              "description": "Sick"
+            },
+            "partOfDayAbsence": {
+              "code": "MORNING",
+              "description": "Morning"
+            },
+            "lateEarlyTime": null,
+            "note": "Absent due to illness.",
+            "modifiedDate": "2025-10-13",
+            "modifiedBy": "Admin"
+          }
+        ]
+      },
+      {
+        "enrolmentId": 5289,
+        "attendanceStatus": {
+          "code": "ATTEND4",
+          "description": "Attended"
+        },
+        "hasAttendanceChanges": true,
+        "hasAbsentNote": true,
+        "eqId": "57f56bcc-5b5d-4bb5-8620-17a0f6984c98",
+        "imageId": 973,
+        "familyName": "Family4",
+        "givenNames": "Given4",
+        "birthDate": "2008-10-13",
+        "age": "18",
+        "rollClass": "Class4",
+        "yearLevel": {
+          "code": "YL4",
+          "description": "Year Level 4"
+        },
+        "enrolmentStatus": {
+          "code": "ENROLLED",
+          "description": "Currently Enrolled"
+        },
+        "gender": {
+          "code": "M",
+          "description": "Male"
+        },
+        "absences": [
+          {
+            "studentAbsenceId": 944,
+            "enrolmentId": 7598,
+            "absenceDate": "2025-10-12",
+            "absenceReason": {
+              "code": "SICK",
+              "description": "Sick"
+            },
+            "partOfDayAbsence": {
+              "code": "MORNING",
+              "description": "Morning"
+            },
+            "lateEarlyTime": null,
+            "note": "Absent due to illness.",
+            "modifiedDate": "2025-10-13",
+            "modifiedBy": "Admin"
+          }
+        ]
+      },
+      {
+        "enrolmentId": 6149,
+        "attendanceStatus": {
+          "code": "ATTEND5",
+          "description": "Attended"
+        },
+        "hasAttendanceChanges": false,
+        "hasAbsentNote": false,
+        "eqId": "1c7009e6-d438-45b9-9943-db74ee297a62",
+        "imageId": null,
+        "familyName": "Family5",
+        "givenNames": "Given5",
+        "birthDate": "2011-10-13",
+        "age": "7",
+        "rollClass": "Class0",
+        "yearLevel": {
+          "code": "YL0",
+          "description": "Year Level 0"
+        },
+        "enrolmentStatus": {
+          "code": "ENROLLED",
+          "description": "Currently Enrolled"
+        },
+        "gender": {
+          "code": "M",
+          "description": "Male"
+        },
+        "absences": [
+          {
+            "studentAbsenceId": 714,
+            "enrolmentId": 9535,
+            "absenceDate": "2025-10-10",
+            "absenceReason": {
+              "code": "SICK",
+              "description": "Sick"
+            },
+            "partOfDayAbsence": {
+              "code": "MORNING",
+              "description": "Morning"
+            },
+            "lateEarlyTime": null,
+            "note": "Absent due to illness.",
+            "modifiedDate": "2025-10-13",
+            "modifiedBy": "Admin"
+          }
+        ]
+      },
+      {
+        "enrolmentId": 5346,
+        "attendanceStatus": {
+          "code": "ATTEND6",
+          "description": "Attended"
+        },
+        "hasAttendanceChanges": false,
+        "hasAbsentNote": true,
+        "eqId": "8d1f7de0-384f-45b1-92fb-e0c60ba2125a",
+        "imageId": 543,
+        "familyName": "Family6",
+        "givenNames": "Given6",
+        "birthDate": "2009-10-13",
+        "age": "18",
+        "rollClass": "Class1",
+        "yearLevel": {
+          "code": "YL1",
+          "description": "Year Level 1"
+        },
+        "enrolmentStatus": {
+          "code": "ENROLLED",
+          "description": "Currently Enrolled"
+        },
+        "gender": {
+          "code": "M",
+          "description": "Male"
+        },
+        "absences": [
+          {
+            "studentAbsenceId": 971,
+            "enrolmentId": 4012,
+            "absenceDate": "2025-10-10",
+            "absenceReason": {
+              "code": "SICK",
+              "description": "Sick"
+            },
+            "partOfDayAbsence": {
+              "code": "MORNING",
+              "description": "Morning"
+            },
+            "lateEarlyTime": null,
+            "note": "Absent due to illness.",
+            "modifiedDate": "2025-10-13",
+            "modifiedBy": "Admin"
+          }
+        ]
+      },
+      {
+        "enrolmentId": 9992,
+        "attendanceStatus": {
+          "code": "ATTEND7",
+          "description": "Attended"
+        },
+        "hasAttendanceChanges": false,
+        "hasAbsentNote": false,
+        "eqId": "1ed64d7f-16dd-4c8b-9865-808aaf124736",
+        "imageId": null,
+        "familyName": "Family7",
+        "givenNames": "Given7",
+        "birthDate": "2020-10-13",
+        "age": "19",
+        "rollClass": "Class2",
+        "yearLevel": {
+          "code": "YL2",
+          "description": "Year Level 2"
+        },
+        "enrolmentStatus": {
+          "code": "ENROLLED",
+          "description": "Currently Enrolled"
+        },
+        "gender": {
+          "code": "M",
+          "description": "Male"
+        },
+        "absences": [
+          {
+            "studentAbsenceId": 959,
+            "enrolmentId": 2620,
+            "absenceDate": "2025-10-10",
+            "absenceReason": {
+              "code": "SICK",
+              "description": "Sick"
+            },
+            "partOfDayAbsence": {
+              "code": "MORNING",
+              "description": "Morning"
+            },
+            "lateEarlyTime": null,
+            "note": "Absent due to illness.",
+            "modifiedDate": "2025-10-13",
+            "modifiedBy": "Admin"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "attendanceId": 798,
+    "version": 1,
+    "isRollMarkable": true,
+    "notRollMarkableReason": null,
+    "isRollMarked": false,
+    "rollMarkedDate": null,
+    "rollMarkedUser": null,
+    "students": [
+      {
+        "enrolmentId": 7696,
+        "attendanceStatus": {
+          "code": "ATTEND0",
+          "description": "Attended"
+        },
+        "hasAttendanceChanges": false,
+        "hasAbsentNote": true,
+        "eqId": "94467330-2097-4fe5-a57e-94251a81e4e4",
+        "imageId": null,
+        "familyName": "Family0",
+        "givenNames": "Given0",
+        "birthDate": "2006-10-13",
+        "age": "10",
+        "rollClass": "Class0",
+        "yearLevel": {
+          "code": "YL0",
+          "description": "Year Level 0"
+        },
+        "enrolmentStatus": {
+          "code": "ENROLLED",
+          "description": "Currently Enrolled"
+        },
+        "gender": {
+          "code": "M",
+          "description": "Male"
+        },
+        "absences": [
+          {
+            "studentAbsenceId": 585,
+            "enrolmentId": 4800,
+            "absenceDate": "2025-10-07",
+            "absenceReason": {
+              "code": "SICK",
+              "description": "Sick"
+            },
+            "partOfDayAbsence": {
+              "code": "MORNING",
+              "description": "Morning"
+            },
+            "lateEarlyTime": null,
+            "note": "Absent due to illness.",
+            "modifiedDate": "2025-10-13",
+            "modifiedBy": "Admin"
+          }
+        ]
+      },
+      {
+        "enrolmentId": 3897,
+        "attendanceStatus": {
+          "code": "ATTEND1",
+          "description": "Attended"
+        },
+        "hasAttendanceChanges": true,
+        "hasAbsentNote": false,
+        "eqId": "81d3d7a4-b1cd-4754-bc57-63d06d4f1e41",
+        "imageId": 554,
+        "familyName": "Family1",
+        "givenNames": "Given1",
+        "birthDate": "2015-10-13",
+        "age": "15",
+        "rollClass": "Class1",
+        "yearLevel": {
+          "code": "YL1",
+          "description": "Year Level 1"
+        },
+        "enrolmentStatus": {
+          "code": "ENROLLED",
+          "description": "Currently Enrolled"
+        },
+        "gender": {
+          "code": "M",
+          "description": "Male"
+        },
+        "absences": [
+          {
+            "studentAbsenceId": 620,
+            "enrolmentId": 4211,
+            "absenceDate": "2025-10-09",
+            "absenceReason": {
+              "code": "SICK",
+              "description": "Sick"
+            },
+            "partOfDayAbsence": {
+              "code": "MORNING",
+              "description": "Morning"
+            },
+            "lateEarlyTime": null,
+            "note": "Absent due to illness.",
+            "modifiedDate": "2025-10-13",
+            "modifiedBy": "Admin"
+          }
+        ]
+      },
+      {
+        "enrolmentId": 2232,
+        "attendanceStatus": {
+          "code": "ATTEND2",
+          "description": "Attended"
+        },
+        "hasAttendanceChanges": false,
+        "hasAbsentNote": true,
+        "eqId": "18e9183d-c9d8-48ba-8fb0-d39104601947",
+        "imageId": 382,
+        "familyName": "Family2",
+        "givenNames": "Given2",
+        "birthDate": "2013-10-13",
+        "age": "9",
+        "rollClass": "Class2",
+        "yearLevel": {
+          "code": "YL2",
+          "description": "Year Level 2"
+        },
+        "enrolmentStatus": {
+          "code": "ENROLLED",
+          "description": "Currently Enrolled"
+        },
+        "gender": {
+          "code": "M",
+          "description": "Male"
+        },
+        "absences": [
+          {
+            "studentAbsenceId": 814,
+            "enrolmentId": 3863,
+            "absenceDate": "2025-10-09",
+            "absenceReason": {
+              "code": "SICK",
+              "description": "Sick"
+            },
+            "partOfDayAbsence": {
+              "code": "MORNING",
+              "description": "Morning"
+            },
+            "lateEarlyTime": null,
+            "note": "Absent due to illness.",
+            "modifiedDate": "2025-10-13",
+            "modifiedBy": "Admin"
+          }
+        ]
+      },
+      {
+        "enrolmentId": 3535,
+        "attendanceStatus": {
+          "code": "ATTEND3",
+          "description": "Attended"
+        },
+        "hasAttendanceChanges": true,
+        "hasAbsentNote": false,
+        "eqId": "3675025c-a3b9-4bc6-b7e6-50134a91b8ec",
+        "imageId": 313,
+        "familyName": "Family3",
+        "givenNames": "Given3",
+        "birthDate": "2007-10-13",
+        "age": "16",
+        "rollClass": "Class3",
+        "yearLevel": {
+          "code": "YL3",
+          "description": "Year Level 3"
+        },
+        "enrolmentStatus": {
+          "code": "ENROLLED",
+          "description": "Currently Enrolled"
+        },
+        "gender": {
+          "code": "M",
+          "description": "Male"
+        },
+        "absences": [
+          {
+            "studentAbsenceId": 250,
+            "enrolmentId": 2243,
+            "absenceDate": "2025-10-08",
+            "absenceReason": {
+              "code": "SICK",
+              "description": "Sick"
+            },
+            "partOfDayAbsence": {
+              "code": "MORNING",
+              "description": "Morning"
+            },
+            "lateEarlyTime": null,
+            "note": "Absent due to illness.",
+            "modifiedDate": "2025-10-13",
+            "modifiedBy": "Admin"
+          }
+        ]
+      },
+      {
+        "enrolmentId": 7091,
+        "attendanceStatus": {
+          "code": "ATTEND4",
+          "description": "Attended"
+        },
+        "hasAttendanceChanges": false,
+        "hasAbsentNote": true,
+        "eqId": "237e7d87-d9a5-490e-805f-15e8d4d2463c",
+        "imageId": null,
+        "familyName": "Family4",
+        "givenNames": "Given4",
+        "birthDate": "2007-10-13",
+        "age": "8",
+        "rollClass": "Class4",
+        "yearLevel": {
+          "code": "YL4",
+          "description": "Year Level 4"
+        },
+        "enrolmentStatus": {
+          "code": "ENROLLED",
+          "description": "Currently Enrolled"
+        },
+        "gender": {
+          "code": "M",
+          "description": "Male"
+        },
+        "absences": [
+          {
+            "studentAbsenceId": 130,
+            "enrolmentId": 6782,
+            "absenceDate": "2025-10-07",
+            "absenceReason": {
+              "code": "SICK",
+              "description": "Sick"
+            },
+            "partOfDayAbsence": {
+              "code": "MORNING",
+              "description": "Morning"
+            },
+            "lateEarlyTime": null,
+            "note": "Absent due to illness.",
+            "modifiedDate": "2025-10-13",
+            "modifiedBy": "Admin"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "attendanceId": null,
+    "version": 1,
+    "isRollMarkable": true,
+    "notRollMarkableReason": null,
+    "isRollMarked": false,
+    "rollMarkedDate": null,
+    "rollMarkedUser": null,
+    "students": [
+      {
+        "enrolmentId": 2158,
+        "attendanceStatus": {
+          "code": "ATTEND0",
+          "description": "Attended"
+        },
+        "hasAttendanceChanges": true,
+        "hasAbsentNote": true,
+        "eqId": "5e2b56b7-03ab-40aa-9942-41a7b0e00cbe",
+        "imageId": null,
+        "familyName": "Family0",
+        "givenNames": "Given0",
+        "birthDate": "2016-10-13",
+        "age": "19",
+        "rollClass": "Class0",
+        "yearLevel": {
+          "code": "YL0",
+          "description": "Year Level 0"
+        },
+        "enrolmentStatus": {
+          "code": "ENROLLED",
+          "description": "Currently Enrolled"
+        },
+        "gender": {
+          "code": "M",
+          "description": "Male"
+        },
+        "absences": [
+          {
+            "studentAbsenceId": 546,
+            "enrolmentId": 5694,
+            "absenceDate": "2025-10-11",
+            "absenceReason": {
+              "code": "SICK",
+              "description": "Sick"
+            },
+            "partOfDayAbsence": {
+              "code": "MORNING",
+              "description": "Morning"
+            },
+            "lateEarlyTime": null,
+            "note": "Absent due to illness.",
+            "modifiedDate": "2025-10-13",
+            "modifiedBy": "Admin"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "attendanceId": 223,
+    "version": 1,
+    "isRollMarkable": true,
+    "notRollMarkableReason": null,
+    "isRollMarked": false,
+    "rollMarkedDate": null,
+    "rollMarkedUser": null,
+    "students": [
+      {
+        "enrolmentId": 3954,
+        "attendanceStatus": {
+          "code": "ATTEND0",
+          "description": "Attended"
+        },
+        "hasAttendanceChanges": false,
+        "hasAbsentNote": true,
+        "eqId": "77aa2588-7a2d-4d68-8f99-c51a5ce5d607",
+        "imageId": 325,
+        "familyName": "Family0",
+        "givenNames": "Given0",
+        "birthDate": "2016-10-13",
+        "age": "9",
+        "rollClass": "Class0",
+        "yearLevel": {
+          "code": "YL0",
+          "description": "Year Level 0"
+        },
+        "enrolmentStatus": {
+          "code": "ENROLLED",
+          "description": "Currently Enrolled"
+        },
+        "gender": {
+          "code": "M",
+          "description": "Male"
+        },
+        "absences": [
+          {
+            "studentAbsenceId": 421,
+            "enrolmentId": 1308,
+            "absenceDate": "2025-10-06",
+            "absenceReason": {
+              "code": "SICK",
+              "description": "Sick"
+            },
+            "partOfDayAbsence": {
+              "code": "MORNING",
+              "description": "Morning"
+            },
+            "lateEarlyTime": null,
+            "note": "Absent due to illness.",
+            "modifiedDate": "2025-10-13",
+            "modifiedBy": "Admin"
+          }
+        ]
+      },
+      {
+        "enrolmentId": 2968,
+        "attendanceStatus": {
+          "code": "ATTEND1",
+          "description": "Attended"
+        },
+        "hasAttendanceChanges": false,
+        "hasAbsentNote": false,
+        "eqId": "5b8f73d7-7736-4f96-834d-76800fb30a09",
+        "imageId": null,
+        "familyName": "Family1",
+        "givenNames": "Given1",
+        "birthDate": "2015-10-13",
+        "age": "12",
+        "rollClass": "Class1",
+        "yearLevel": {
+          "code": "YL1",
+          "description": "Year Level 1"
+        },
+        "enrolmentStatus": {
+          "code": "ENROLLED",
+          "description": "Currently Enrolled"
+        },
+        "gender": {
+          "code": "M",
+          "description": "Male"
+        },
+        "absences": [
+          {
+            "studentAbsenceId": 405,
+            "enrolmentId": 1582,
+            "absenceDate": "2025-10-07",
+            "absenceReason": {
+              "code": "SICK",
+              "description": "Sick"
+            },
+            "partOfDayAbsence": {
+              "code": "MORNING",
+              "description": "Morning"
+            },
+            "lateEarlyTime": null,
+            "note": "Absent due to illness.",
+            "modifiedDate": "2025-10-13",
+            "modifiedBy": "Admin"
+          }
+        ]
+      },
+      {
+        "enrolmentId": 2233,
+        "attendanceStatus": {
+          "code": "ATTEND2",
+          "description": "Attended"
+        },
+        "hasAttendanceChanges": false,
+        "hasAbsentNote": true,
+        "eqId": "a34c8f5d-91e0-48cb-a996-f987d6e685f2",
+        "imageId": 448,
+        "familyName": "Family2",
+        "givenNames": "Given2",
+        "birthDate": "2019-10-13",
+        "age": "6",
+        "rollClass": "Class2",
+        "yearLevel": {
+          "code": "YL2",
+          "description": "Year Level 2"
+        },
+        "enrolmentStatus": {
+          "code": "ENROLLED",
+          "description": "Currently Enrolled"
+        },
+        "gender": {
+          "code": "M",
+          "description": "Male"
+        },
+        "absences": [
+          {
+            "studentAbsenceId": 929,
+            "enrolmentId": 8850,
+            "absenceDate": "2025-10-09",
+            "absenceReason": {
+              "code": "SICK",
+              "description": "Sick"
+            },
+            "partOfDayAbsence": {
+              "code": "MORNING",
+              "description": "Morning"
+            },
+            "lateEarlyTime": null,
+            "note": "Absent due to illness.",
+            "modifiedDate": "2025-10-13",
+            "modifiedBy": "Admin"
+          }
+        ]
+      },
+      {
+        "enrolmentId": 2280,
+        "attendanceStatus": {
+          "code": "ATTEND3",
+          "description": "Attended"
+        },
+        "hasAttendanceChanges": false,
+        "hasAbsentNote": false,
+        "eqId": "77589f2d-b40d-48e4-8a4d-695d5b00cf34",
+        "imageId": null,
+        "familyName": "Family3",
+        "givenNames": "Given3",
+        "birthDate": "2008-10-13",
+        "age": "12",
+        "rollClass": "Class3",
+        "yearLevel": {
+          "code": "YL3",
+          "description": "Year Level 3"
+        },
+        "enrolmentStatus": {
+          "code": "ENROLLED",
+          "description": "Currently Enrolled"
+        },
+        "gender": {
+          "code": "M",
+          "description": "Male"
+        },
+        "absences": [
+          {
+            "studentAbsenceId": 748,
+            "enrolmentId": 9714,
+            "absenceDate": "2025-10-09",
+            "absenceReason": {
+              "code": "SICK",
+              "description": "Sick"
+            },
+            "partOfDayAbsence": {
+              "code": "MORNING",
+              "description": "Morning"
+            },
+            "lateEarlyTime": null,
+            "note": "Absent due to illness.",
+            "modifiedDate": "2025-10-13",
+            "modifiedBy": "Admin"
+          }
+        ]
+      },
+      {
+        "enrolmentId": 8523,
+        "attendanceStatus": {
+          "code": "ATTEND4",
+          "description": "Attended"
+        },
+        "hasAttendanceChanges": false,
+        "hasAbsentNote": false,
+        "eqId": "64a79e26-b1b3-47ea-94ce-494588f48877",
+        "imageId": null,
+        "familyName": "Family4",
+        "givenNames": "Given4",
+        "birthDate": "2014-10-13",
+        "age": "19",
+        "rollClass": "Class4",
+        "yearLevel": {
+          "code": "YL4",
+          "description": "Year Level 4"
+        },
+        "enrolmentStatus": {
+          "code": "ENROLLED",
+          "description": "Currently Enrolled"
+        },
+        "gender": {
+          "code": "M",
+          "description": "Male"
+        },
+        "absences": [
+          {
+            "studentAbsenceId": 892,
+            "enrolmentId": 9997,
+            "absenceDate": "2025-10-05",
+            "absenceReason": {
+              "code": "SICK",
+              "description": "Sick"
+            },
+            "partOfDayAbsence": {
+              "code": "MORNING",
+              "description": "Morning"
+            },
+            "lateEarlyTime": null,
+            "note": "Absent due to illness.",
+            "modifiedDate": "2025-10-13",
+            "modifiedBy": "Admin"
+          }
+        ]
+      },
+      {
+        "enrolmentId": 9635,
+        "attendanceStatus": {
+          "code": "ATTEND5",
+          "description": "Attended"
+        },
+        "hasAttendanceChanges": false,
+        "hasAbsentNote": true,
+        "eqId": "d68dfafb-6fcf-4e1c-86be-2f195fa0b622",
+        "imageId": null,
+        "familyName": "Family5",
+        "givenNames": "Given5",
+        "birthDate": "2013-10-13",
+        "age": "17",
+        "rollClass": "Class0",
+        "yearLevel": {
+          "code": "YL0",
+          "description": "Year Level 0"
+        },
+        "enrolmentStatus": {
+          "code": "ENROLLED",
+          "description": "Currently Enrolled"
+        },
+        "gender": {
+          "code": "M",
+          "description": "Male"
+        },
+        "absences": [
+          {
+            "studentAbsenceId": 959,
+            "enrolmentId": 3210,
+            "absenceDate": "2025-10-04",
+            "absenceReason": {
+              "code": "SICK",
+              "description": "Sick"
+            },
+            "partOfDayAbsence": {
+              "code": "MORNING",
+              "description": "Morning"
+            },
+            "lateEarlyTime": null,
+            "note": "Absent due to illness.",
+            "modifiedDate": "2025-10-13",
+            "modifiedBy": "Admin"
+          }
+        ]
+      }
+    ]
+  }
+]
