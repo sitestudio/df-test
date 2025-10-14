@@ -1,54 +1,48 @@
 {
-  "compositeResponse": {
-    "session": "2023-2024",
+  "compositeStudentInformationResponse": {
+    "session": "2023",
     "isRollMarkable": true,
-    "notRollMarkableReason": {
-      "code": "0",
-      "description": "No Reason"
-    },
-    "isRollMarked": true,
-    "rollMarkedDate": "2025-10-14T21:55:43.6119455Z",
-    "rollMarkedUser": "admin",
-    "timetableClassIds": "class123;class456",
+    "notRollMarkableReason": null,
+    "isRollMarked": false,
+    "rollMarkedDate": null,
+    "rollMarkedUser": null,
+    "timetableClassIds": "TID123",
     "classes": [
       {
-        "attendanceId": 1,
-        "version": 1,
+        "attendanceId": 67,
+        "version": 3,
         "isRollMarkable": true,
-        "notRollMarkableReason": {
-          "code": "0",
-          "description": "No Reason"
-        },
-        "isRollMarked": true,
-        "rollMarkedDate": "2025-10-14T21:55:43.6126437Z",
-        "rollMarkedUser": "admin"
+        "notRollMarkableReason": null,
+        "isRollMarked": false,
+        "rollMarkedDate": null,
+        "rollMarkedUser": null
       }
     ],
     "students": [
       {
-        "session": "2023-2024",
-        "timetableClassId": 1,
-        "enrolmentId": 1,
+        "session": "2023",
+        "timetableClassId": 43,
+        "enrolmentId": 376,
         "attendanceStatus": {
-          "code": "P",
+          "code": "Present",
           "description": "Present"
         },
         "hasAttendanceChanges": false,
         "hasAbsentNote": false,
-        "eqId": "eq1",
+        "eqId": "0a3b9312-7688-4b19-a75b-70c2ac296e53",
         "imageId": null,
-        "familyName": "Smith",
-        "givenNames": "John",
-        "birthDate": "2005-01-15T00:00:00Z",
-        "age": "18",
-        "rollClass": "Math",
+        "familyName": "Family0",
+        "givenNames": "Given0",
+        "birthDate": "2008-10-02",
+        "age": "17",
+        "rollClass": "Year 12",
         "yearLevel": {
           "code": "12",
           "description": "Year 12"
         },
         "enrolmentStatus": {
-          "code": "EN",
-          "description": "Enrolled"
+          "code": "Active",
+          "description": "Active"
         },
         "gender": {
           "code": "M",
@@ -57,82 +51,126 @@
         "absences": []
       },
       {
-        "session": "2023-2024",
-        "timetableClassId": 1,
-        "enrolmentId": 2,
+        "session": "2023",
+        "timetableClassId": 32,
+        "enrolmentId": 210,
         "attendanceStatus": {
-          "code": "A",
-          "description": "Absent"
+          "code": "Present",
+          "description": "Present"
         },
         "hasAttendanceChanges": false,
-        "hasAbsentNote": true,
-        "eqId": "eq2",
+        "hasAbsentNote": false,
+        "eqId": "acb36fc0-d66e-48ba-80c9-45fe0d63e4a8",
         "imageId": null,
-        "familyName": "Doe",
-        "givenNames": "Jane",
-        "birthDate": "2004-05-22T00:00:00Z",
-        "age": "19",
-        "rollClass": "English",
+        "familyName": "Family1",
+        "givenNames": "Given1",
+        "birthDate": "2008-05-14",
+        "age": "17",
+        "rollClass": "Year 12",
         "yearLevel": {
           "code": "12",
           "description": "Year 12"
         },
         "enrolmentStatus": {
-          "code": "EN",
-          "description": "Enrolled"
+          "code": "Active",
+          "description": "Active"
         },
         "gender": {
-          "code": "F",
-          "description": "Female"
+          "code": "M",
+          "description": "Male"
         },
-        "absences": [
-          {
-            "studentAbsenceId": 1,
-            "enrolmentId": 2,
-            "absenceDate": "2023-10-01T00:00:00Z",
-            "absenceReason": {
-              "code": "S",
-              "description": "Sick"
-            },
-            "partOfDayAbsence": {
-              "code": "FullDay",
-              "description": "Full Day"
-            },
-            "lateEarlyTime": null,
-            "note": "Doctor\u0027s appointment",
-            "modifiedDate": "2025-10-14T21:55:43.6167358Z",
-            "modifiedBy": "admin"
-          }
-        ]
+        "absences": []
       },
       {
-        "session": "2023-2024",
-        "timetableClassId": 1,
-        "enrolmentId": 3,
+        "session": "2023",
+        "timetableClassId": 75,
+        "enrolmentId": 307,
         "attendanceStatus": {
-          "code": "P",
+          "code": "Present",
           "description": "Present"
         },
         "hasAttendanceChanges": false,
         "hasAbsentNote": false,
-        "eqId": "eq3",
+        "eqId": "aa16e75e-d638-4062-9416-cc848ff6df9d",
         "imageId": null,
-        "familyName": "Brown",
-        "givenNames": "Emily",
-        "birthDate": "2005-07-10T00:00:00Z",
-        "age": "18",
-        "rollClass": "Science",
+        "familyName": "Family2",
+        "givenNames": "Given2",
+        "birthDate": "2008-08-05",
+        "age": "17",
+        "rollClass": "Year 12",
         "yearLevel": {
-          "code": "11",
-          "description": "Year 11"
+          "code": "12",
+          "description": "Year 12"
         },
         "enrolmentStatus": {
-          "code": "EN",
-          "description": "Enrolled"
+          "code": "Active",
+          "description": "Active"
         },
         "gender": {
-          "code": "F",
-          "description": "Female"
+          "code": "M",
+          "description": "Male"
+        },
+        "absences": []
+      },
+      {
+        "session": "2023",
+        "timetableClassId": 61,
+        "enrolmentId": 79,
+        "attendanceStatus": {
+          "code": "Present",
+          "description": "Present"
+        },
+        "hasAttendanceChanges": false,
+        "hasAbsentNote": false,
+        "eqId": "8bd8d779-5220-4ffd-b561-7e9665778f5b",
+        "imageId": null,
+        "familyName": "Family3",
+        "givenNames": "Given3",
+        "birthDate": "2007-11-28",
+        "age": "17",
+        "rollClass": "Year 12",
+        "yearLevel": {
+          "code": "12",
+          "description": "Year 12"
+        },
+        "enrolmentStatus": {
+          "code": "Active",
+          "description": "Active"
+        },
+        "gender": {
+          "code": "M",
+          "description": "Male"
+        },
+        "absences": []
+      },
+      {
+        "session": "2023",
+        "timetableClassId": 3,
+        "enrolmentId": 708,
+        "attendanceStatus": {
+          "code": "Present",
+          "description": "Present"
+        },
+        "hasAttendanceChanges": false,
+        "hasAbsentNote": false,
+        "eqId": "b3cf7363-4a2a-4742-9e64-b5365af35583",
+        "imageId": null,
+        "familyName": "Family4",
+        "givenNames": "Given4",
+        "birthDate": "2007-11-25",
+        "age": "17",
+        "rollClass": "Year 12",
+        "yearLevel": {
+          "code": "12",
+          "description": "Year 12"
+        },
+        "enrolmentStatus": {
+          "code": "Active",
+          "description": "Active"
+        },
+        "gender": {
+          "code": "M",
+          "description": "Male"
         },
         "absences": []
       }
@@ -141,21 +179,21 @@
   "studentsResponse": {
     "students": [
       {
-        "enrolmentId": 1,
-        "eqId": "eq1",
+        "enrolmentId": 376,
+        "eqId": "0a3b9312-7688-4b19-a75b-70c2ac296e53",
         "imageId": null,
-        "familyName": "Smith",
-        "givenNames": "John",
-        "birthDate": "2005-01-15T00:00:00Z",
-        "age": "18",
-        "rollClass": "Math",
+        "familyName": "Family0",
+        "givenNames": "Given0",
+        "birthDate": "2008-10-02",
+        "age": "17",
+        "rollClass": "Year 12",
         "yearLevel": {
           "code": "12",
           "description": "Year 12"
         },
         "enrolmentStatus": {
-          "code": "EN",
-          "description": "Enrolled"
+          "code": "Active",
+          "description": "Active"
         },
         "gender": {
           "code": "M",
@@ -165,69 +203,93 @@
         "absences": []
       },
       {
-        "enrolmentId": 2,
-        "eqId": "eq2",
+        "enrolmentId": 210,
+        "eqId": "acb36fc0-d66e-48ba-80c9-45fe0d63e4a8",
         "imageId": null,
-        "familyName": "Doe",
-        "givenNames": "Jane",
-        "birthDate": "2004-05-22T00:00:00Z",
-        "age": "19",
-        "rollClass": "English",
+        "familyName": "Family1",
+        "givenNames": "Given1",
+        "birthDate": "2008-05-14",
+        "age": "17",
+        "rollClass": "Year 12",
         "yearLevel": {
           "code": "12",
           "description": "Year 12"
         },
         "enrolmentStatus": {
-          "code": "EN",
-          "description": "Enrolled"
+          "code": "Active",
+          "description": "Active"
         },
         "gender": {
-          "code": "F",
-          "description": "Female"
-        },
-        "hasAbsentNote": true,
-        "absences": []
-      },
-      {
-        "enrolmentId": 3,
-        "eqId": "eq3",
-        "imageId": null,
-        "familyName": "Brown",
-        "givenNames": "Emily",
-        "birthDate": "2005-07-10T00:00:00Z",
-        "age": "18",
-        "rollClass": "Science",
-        "yearLevel": {
-          "code": "11",
-          "description": "Year 11"
-        },
-        "enrolmentStatus": {
-          "code": "EN",
-          "description": "Enrolled"
-        },
-        "gender": {
-          "code": "F",
-          "description": "Female"
+          "code": "M",
+          "description": "Male"
         },
         "hasAbsentNote": false,
         "absences": []
       },
       {
-        "enrolmentId": 4,
-        "eqId": "eq4",
+        "enrolmentId": 307,
+        "eqId": "aa16e75e-d638-4062-9416-cc848ff6df9d",
         "imageId": null,
-        "familyName": "Johnson",
-        "givenNames": "Michael",
-        "birthDate": "2006-02-14T00:00:00Z",
+        "familyName": "Family2",
+        "givenNames": "Given2",
+        "birthDate": "2008-08-05",
         "age": "17",
-        "rollClass": "History",
+        "rollClass": "Year 12",
         "yearLevel": {
-          "code": "10",
-          "description": "Year 10"
+          "code": "12",
+          "description": "Year 12"
         },
         "enrolmentStatus": {
-          "code": "EN",
-          "description": "Enrolled"
+          "code": "Active",
+          "description": "Active"
+        },
+        "gender": {
+          "code": "M",
+          "description": "Male"
+        },
+        "hasAbsentNote": false,
+        "absences": []
+      },
+      {
+        "enrolmentId": 79,
+        "eqId": "8bd8d779-5220-4ffd-b561-7e9665778f5b",
+        "imageId": null,
+        "familyName": "Family3",
+        "givenNames": "Given3",
+        "birthDate": "2007-11-28",
+        "age": "17",
+        "rollClass": "Year 12",
+        "yearLevel": {
+          "code": "12",
+          "description": "Year 12"
+        },
+        "enrolmentStatus": {
+          "code": "Active",
+          "description": "Active"
+        },
+        "gender": {
+          "code": "M",
+          "description": "Male"
+        },
+        "hasAbsentNote": false,
+        "absences": []
+      },
+      {
+        "enrolmentId": 708,
+        "eqId": "b3cf7363-4a2a-4742-9e64-b5365af35583",
+        "imageId": null,
+        "familyName": "Family4",
+        "givenNames": "Given4",
+        "birthDate": "2007-11-25",
+        "age": "17",
+        "rollClass": "Year 12",
+        "yearLevel": {
+          "code": "12",
+          "description": "Year 12"
+        },
+        "enrolmentStatus": {
+          "code": "Active",
+          "description": "Active"
         },
         "gender": {
           "code": "M",
