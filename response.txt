@@ -1,0 +1,14 @@
+errMsg: AThe JSON file with the generated sample data has been created successfully. You can download it using the link below:
+
+[Download student_schedules.json](sandbox:/mnt/data/student_schedules.json)
+
+Next, to create a pull request on GitHub, you will need to:
+
+1. Clone the repository `https://github.com/sitestudio/df-test` to your local machine.
+2. Create a new branch for your changes using `git checkout -b my-branch`.
+3. Add the downloaded JSON file to your branch.
+4. Commit the changes with a message like "Add sample student schedules JSON".
+5. Push the branch to GitHub using `git push origin my-branch`.
+6. Go to the GitHub repository and create a pull request from your branch.
+
+Would you like to proceed with instructions or help on any of these steps?
